@@ -1,0 +1,261 @@
+/*---------------------*/
+/* ------IMPORTS------ */
+/*---------------------*/
+@import url(../Boostrap/cores.css);
+
+/*------------------*/
+/* ------BODY------ */
+/*------------------*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--fundo);
+    height: 100vh;
+    width: 100%;
+    /* margin-bottom: 100px; */
+    color: var(--branco);
+    background-image: url(../img/Padrao_Fundo.png);
+    background-size: 100px;
+}
+
+
+nav {
+    position: fixed;
+    z-index: 10;
+    background-color: var(--primaria-alt);
+    height: 10vh;
+    width: 100%;
+}
+
+footer {
+    /* background-color: var(--primaria);
+  height: 100%; */
+    width: 100%;
+    /* color: var(--secundaria-alt); */
+    bottom: 0%;
+    left: 0;
+}
+
+/*----------------*/
+/* ------ID------ */
+/*----------------*/
+
+#links {
+    height: 100%;
+    width: 50%;
+    float: right;
+    align-content: center;
+    /* margin-right: 50px; */
+    /* margin-top: 10px; */
+}
+
+#home {
+    height: 90vh;
+    padding-top: 100px;
+    scroll-margin-top: 10vh;
+    color: var(--branco);
+    background: linear-gradient(rgba(0, 0, 0, 0.2), var(--fundo)), url(../img/fundo_home.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+#qualidade {
+    /* height: 45vh; */
+    height: 100%;
+    scroll-margin-top: 10vh;
+    padding-top: 50px;
+    text-align: left;
+    font-size: 14px;
+}
+
+#sobre {
+    /* height: 45vh; */
+    height: 100%;
+    scroll-margin-top: 10vh;
+    padding-top: 50px;
+    text-align: left;
+    color: var(--branco);
+}
+
+#catalogo {
+    /* height: 45vh; */
+    height: 100%;
+    scroll-margin-top: 10vh;
+    padding-top: 50px;
+}
+
+#localizacao {
+    /* height: 45vh; */
+    height: 100%;
+    scroll-margin-top: 10vh;
+    padding-top: 50px;
+}
+
+#redes {
+    /* height: 90vh; */
+    height: 100%;
+    scroll-margin-top: 10vh;
+    padding-top: 50px;
+}
+
+#fundo-locate {
+    /* background-color: var(--acento); */
+    /* width: 80%; */
+    border-radius: 10px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    /* margin-left: auto;
+  margin-right: auto; */
+    background: linear-gradient(var(--fundo), var(--acento));
+    background-size: cover;
+    background-position: center;
+    text-align: left;
+    padding-left: 20px;
+}
+
+/*-------------------*/
+/* ------CLASS------ */
+/*-------------------*/
+
+/* ------LOGOS------ */
+
+.logo_navbar {
+    height: 100%;
+    padding-left: 5%;
+}
+
+.logo_home {
+    width: 80%;
+    margin: auto;
+}
+
+/* -----IMAGENS----- */
+
+.img_perfil {
+    width: 200px;
+    border-radius: 50%;
+}
+
+/* ------ICONES----- */
+
+.icon_quali {
+    width: 80%;
+    border-radius: 10%;
+    border: 2px solid var(--preto);
+    /* box-shadow: 10px 10px 15px rgba(0, 0, 0, 1); */
+    background-color: var(--primaria);
+}
+
+.icon_insta {
+    width: 80%;
+}
+
+/* -------GBS------- */
+
+.fundo-sobre {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), var(--fundo)), url(../img/fundo_sobre.png);
+    /* background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center; */
+}
+
+.bg-insta {
+    background: linear-gradient(#DE2D75, #8D3EB3);
+}
+
+/* ------TITLES----- */
+
+.fundo-titulo {
+    width: 20rem;
+    height: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: -1;
+    position: relative;
+    top: -1.0rem;
+}
+
+.titulo-qualidade {
+    width: 20%;
+    height: 1rem;
+    margin-right: auto;
+    background-color: var(--primaria);
+    z-index: -1;
+    position: relative;
+    top: -0.5rem;
+}
+
+/* ----FORMATTING--- */
+
+.center {
+    text-align: center;
+}
+
+.fper-width {
+    width: 100%;
+}
+
+.fper-height {
+    height: 100%;
+}
+
+.full-height {
+    height: 90vh;
+}
+
+.half-height {
+    height: 45vh;
+}
+
+.nav-cat {
+    position: relative;
+    /* z-index: 10; */
+    background-color: var(--primaria-alt);
+    height: 10vh;
+    width: 100%;
+}
+
+/* ------OTHERS----- */
+
+.conteudo {
+    padding-top: 10vh;
+    text-align: center;
+}
+
+.link {
+    text-decoration: none;
+    color: var(--branco);
+    margin-left: 10px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.link:hover {
+    color: var(--secundaria);
+}
+
+.termo {
+    text-decoration: none;
+    color: var(--secundaria-alt);
+}
+
+.termo:hover {
+    text-decoration: none;
+    color: var(--secundaria-alt);
+    font-weight: bold;
+}
+
+.btn-cat {
+    color: var(--preto);
+    background-color: var(--secundaria-alt);
+    /* border-color: #212529; */
+}
+
+.btn-cat:hover {
+    color: var(--branco);
+    background-color: var(--secundaria);
+    /* border-color: #1a1e21; */
+}
