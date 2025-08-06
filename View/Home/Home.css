@@ -17,7 +17,7 @@ body {
     width: 100%;
     /* margin-bottom: 100px; */
     color: var(--branco);
-    background-image: url(../img/Padrao_Fundo.png);
+    background-image: url(./img/Padrao_Fundo.png);
     background-size: 100px;
 }
 
@@ -57,7 +57,7 @@ footer {
     padding-top: 100px;
     scroll-margin-top: 10vh;
     color: var(--branco);
-    background: linear-gradient(rgba(0, 0, 0, 0.2), var(--fundo)), url(../img/fundo_home.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.2), var(--fundo)), url(./img/fundo_home.jpg);
     background-size: cover;
     background-position: center;
 }
@@ -156,7 +156,7 @@ footer {
 /* -------GBS------- */
 
 .fundo-sobre {
-    background: linear-gradient(rgba(0, 0, 0, 0.8), var(--fundo)), url(../img/fundo_sobre.png);
+    background: linear-gradient(rgba(0, 0, 0, 0.8), var(--fundo)), url(./img/fundo_sobre.png);
     /* background-size: 80%;
   background-repeat: no-repeat;
   background-position: center; */
