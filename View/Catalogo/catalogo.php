@@ -45,19 +45,20 @@
             <?php
             require '../../Model/Conexao.php';
 
-            $sql = "SELECT Cat_id, Cat_img1, Cat_img2, Cat_img3, Cat_img4, Cat_nome, Cat_cate, Cat_desc FROM Catalogo";
+            $sql = "SELECT Cat_id, Cat_img1, Cat_nome, Cat_cate, Cat_desc FROM Catalogo";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
                 echo "<div class='catalog-container'>";
                 while ($row = $result->fetch_assoc()) {
-
+                    // supondo que a imagem está no caminho correto
                     $foto = $row['Cat_img1'];
+
                     echo "<div class='catalog-card'>
+                        <img src='img/{$foto}' alt='Imagem do produto {$row['Cat_nome']}'>
                         <p><strong>ID:</strong> {$row['Cat_id']}</p>
                         <p><strong>Nome:</strong> {$row['Cat_nome']}</p>
                         <p><strong>Categoria:</strong> {$row['Cat_cate']}</p>
-                        <p><strong>Foto:</strong> <img src='img/img_test.jpg' class='foto'></p>
                         <p><strong>Descrição:</strong> {$row['Cat_desc']}</p>
                     </div>";
                 }
