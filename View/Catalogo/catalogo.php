@@ -54,13 +54,13 @@
                     // supondo que a imagem está no caminho correto
                     $foto = $row['Cat_img1'];
 
-                    echo "<div class='catalog-card'>
-                        <img src='img/{$foto}' alt='Imagem do produto {$row['Cat_nome']}'>
-                        <p><strong>ID:</strong> {$row['Cat_id']}</p>
-                        <p><strong>Nome:</strong> {$row['Cat_nome']}</p>
-                        <p><strong>Categoria:</strong> {$row['Cat_cate']}</p>
-                        <p><strong>Descrição:</strong> {$row['Cat_desc']}</p>
-                    </div>";
+                    echo "<div class='catalog-card' style='background-image: url(img/{$foto});'>
+                            <div class='overlay'>
+                                <h3>{$row['Cat_nome']}</h3>
+                                <p>{$row['Cat_desc']}</p>
+                            </div>
+                        </div>";
+
                 }
                 echo "</div>";
             }
