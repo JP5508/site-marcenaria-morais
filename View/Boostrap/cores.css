@@ -56,7 +56,9 @@
 }
 
 .bg-teste {
-    background-color: var(--teste);
+    /* background-color: var(--teste); */
+    background-image: url(./img_test.jpg);
+    background-size: cover;
 }
 
 /*-------------------*/
