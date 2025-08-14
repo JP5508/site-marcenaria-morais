@@ -80,9 +80,10 @@
             </div>
         </div>
 
-        <!--CATÁLOGO-->
-        <div class="container-fluid" id="catalogo">
-            <?php
+        <?php
+        //<!--CATÁLOGO-->
+        echo "<div class='container-fluid' id='catalogo'>";
+            
             require '../../Model/Conexao.php';
 
             $sql = "SELECT Cat_id, Cat_img1, Cat_nome, Cat_cate, Cat_desc FROM Catalogo";
@@ -92,50 +93,56 @@
                 echo "<div class='catalog-container'>";
                 while ($row = $result->fetch_assoc()) {
                     $foto = $row['Cat_img1'];
+                    $id = $row['Cat_id'];
 
-                    echo "<div class='catalog-card' style='background-image: url(img/{$foto});'>
+                    echo "
+                    <a href='../Home/home.html'>
+                    <div class='catalog-card' style='background-image: url(img/{$foto});'>
                             <div class='overlay'>
                                 <h3>{$row['Cat_nome']}</h3>
                                 <p>{$row['Cat_desc']}</p>
                             </div>
-                        </div>";
+                        </div>
+                        </a>";
 
                 }
                 echo "</div>";
             }
 
-            $conn->close();
-            ?>
+            
 
-        </div>
+        echo"</div>";
 
-        <!--POPUP-->
-        <!--FUNDO BEGE-->
-        <div class="col-xl-6 col-sm-11 bg-secundaria-alt rounded p-4" id="popup">
+        //<!--POPUP-->
+        //<!--FUNDO BEGE-->
+        echo"<div class='col-xl-6 col-sm-11 bg-secundaria-alt rounded p-4' id='popup'>
             <!--COLUNAS INTERNAS-->
-            <div class="row fper-height">
+            <div class='row fper-height'>
                 <!--COLUNA ESQUERDA-->
-                <div class="col-xl-6 col-sm-12">
-                    <div class="text-white p-3 rounded half-height bg-secundaria bg-teste">
+                <div class='col-xl-6 col-sm-12'>
+                    <div class='text-white p-3 rounded half-height bg-secundaria bg-teste'>
                         <!--CARROSEL-->
                     </div>
                 </div>
                 <!--COLUNA DIREITA-->
-                <div class="col-xl-6 col-sm-12 half-height">
-                    <div class="position-absolute top-0 end-0 p-3">
-                        <button type="button" class="btn-close" aria-label="Fechar" onclick="fecharPopup()"></button>
+                <div class='col-xl-6 col-sm-12 half-height'>
+                    <div class='position-absolute top-0 end-0 p-3'>
+                        <button type='button' class='btn-close' aria-label='Fechar' onclick='fecharPopup()'></button>
                     </div>
-                    <div class="text-dark p-3">
+                    <div class='text-dark p-3'>
                         <!--PHP: NOME-->
                         <h2>nome</h2>
                         <!--PHP: DESCRIÇÃO-->
-                        <p>desc</p>
+                        <p>{$id}</p>
                         <!--PHP: CATEGORIA-->
                         <p>categ</p>
                     </div>
                 </div>
             </div>
-        </div>
+        </div>";
+
+        $conn->close();
+            ?>
     </div>
 
     <!-- FOOTER -->
