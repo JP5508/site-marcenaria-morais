@@ -1,5 +1,0 @@
-ESTRUTURA BASICA DAS DIVS
-
-<div class="container-fluid-center">
-    <div class="col-xl-12 col-sm-12"></div>
-<div>

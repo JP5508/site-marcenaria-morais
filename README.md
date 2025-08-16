@@ -23,18 +23,18 @@ Ano letivo: 2025
 ----
 
 ## 📘 Descrição do Projeto
-O sistema é composto por duas partes integradas:
+O sistema é composto por duas partes:
 
 ### 🌐 Site de Divulgação
-Um site responsivo, criado com **HTML5**, **CSS3** e **Bootstrap**, com as seguintes funcionalidades:
-- Apresentação da marcenaria
-- Página de contato
-- Catálogo de produtos (integrado ao sistema de gestão)
+Um site responsivo, criado com **HTML5** e **CSS3**, com as seguintes funcionalidades:
+- Apresentação da marcenaria;
+- Catálogo de produtos;
+- Login único para o proprietário gerenciar os produtos;
+- Cadastro e gerenciamento de produtos do catálogo;
+- Integração com banco de dados.
 
 ### 💻 Software de Gestão
 Aplicativo desktop desenvolvido em **C#**, com as seguintes funcionalidades:
-- Cadastro de clientes
-- Cadastro e gerenciamento de produtos
-- Registro de pedidos
-- Atualização do catálogo exibido no site
-- Integração com banco de dados
+- Cadastro de clientes;
+- Registro de pedidos;
+- Integração com banco de dados.

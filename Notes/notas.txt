@@ -1,0 +1,20 @@
+----------TO-DO----------
+
+[..] ...
+
+----------COMANDOS----------
+
+git rm -r --cached IGNORE
+
+git add.
+git commit -m "Título" -m "Descrição"
+git push
+
+ctrl + k + u = comenta
+ctrl + k + c = descomenta
+
+----------ANOTAÇÕES----------
+
+CSS:
+Margin: Espaçamento Exterior
+Paddin: Espaçamento Interiror
