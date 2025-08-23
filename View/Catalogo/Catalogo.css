@@ -102,6 +102,10 @@ footer {
     visibility: hidden;
 }
 
+#popup-img::after{
+    width: 100vw;
+}
+
 #localizacao {
     /* height: 45vh; */
     height: 100%;

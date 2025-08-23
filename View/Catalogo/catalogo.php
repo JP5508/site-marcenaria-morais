@@ -11,9 +11,13 @@
     <!-- BOOTSTRAP CSS -->
     <link href="../Boostrap/bootstrap.css" rel="stylesheet" />
     <link href="./Catalogo.css" rel="stylesheet" />
+
+
+
 </head>
 
 <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- NAVBAR -->
     <nav class="nav-cat">
         <a href="../Home/home.html">
@@ -83,66 +87,85 @@
         <?php
         //<!--CATÁLOGO-->
         echo "<div class='container-fluid' id='catalogo'>";
-            
-            require '../../Model/Conexao.php';
 
-            $sql = "SELECT Cat_id, Cat_img1, Cat_nome, Cat_cate, Cat_desc FROM Catalogo";
-            $result = $conn->query($sql);
+        require '../../Model/Conexao.php';
 
-            if ($result->num_rows > 0) {
-                echo "<div class='catalog-container'>";
-                while ($row = $result->fetch_assoc()) {
-                    $foto = $row['Cat_img1'];
-                    $id = $row['Cat_id'];
+        $sql = "SELECT Cat_id, Cat_img1, Cat_nome, Cat_cate, Cat_desc FROM Catalogo";
+        $result = $conn->query($sql);
 
-                    echo "
-                    <a href='../Home/home.html'>
-                    <div class='catalog-card' style='background-image: url(img/{$foto});'>
-                            <div class='overlay'>
-                                <h3>{$row['Cat_nome']}</h3>
-                                <p>{$row['Cat_desc']}</p>
-                            </div>
-                        </div>
-                        </a>";
+        if ($result->num_rows > 0) {
+            echo "<div class='catalog-container'>";
+            while ($row = $result->fetch_assoc()) {
+                $nome = $row['Cat_nome'];
+                $desc = $row['Cat_desc'];
+                $cate = $row['Cat_cate'];
+                $img1 = !empty($row['Cat_img1']) ? $row['Cat_img1'] : '';
+                $img2 = !empty($row['Cat_img2']) ? $row['Cat_img2'] : '';
+                $img3 = !empty($row['Cat_img3']) ? $row['Cat_img3'] : '';
+                $id = $row['Cat_id'];
 
-                }
-                echo "</div>";
+                echo "
+<div class='catalog-card' style='background-image: url(img/{$img1});'
+    onclick=\"abrirPopup('{$nome}', '{$desc}', '{$cate}', '{$id}', '{$img1}', '{$img2}', '{$img3}')\">
+                    <div class='overlay'>'
+                    <h3>{$row['Cat_nome']}</h3>
+                    <p>{$row['Cat_desc']}</p>
+                    </div>
+
+                    </div>";
             }
+            echo "</div>";
+        }
 
-            
 
-        echo"</div>";
 
-        //<!--POPUP-->
-        //<!--FUNDO BEGE-->
-        echo"<div class='col-xl-6 col-sm-11 bg-secundaria-alt rounded p-4' id='popup'>
-            <!--COLUNAS INTERNAS-->
-            <div class='row fper-height'>
-                <!--COLUNA ESQUERDA-->
-                <div class='col-xl-6 col-sm-12'>
-                    <div class='text-white p-3 rounded half-height bg-secundaria bg-teste'>
-                        <!--CARROSEL-->
+        echo "</div>";
+        $conn->close();
+        ?>
+
+
+        <!--POPUP-->
+
+        <!--FUNDO BEGE-->
+        <div id="popup-overlay" style="visibility: hidden; opacity: 0;" onclick="fecharPopup()"></div>
+
+        <!-- Popup -->
+        <div class="col-xl-6 col-sm-11 bg-secundaria-alt rounded p-4" id="popup">
+            <div class="row fper-height">
+                <!-- Coluna esquerda -->
+                <div class="col-xl-6 col-sm-12">
+                    <div id="popup-img" class="text-white p-3 rounded half-height bg-secundaria">
+                        <div id="popup-carousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner" id="carousel-inner">
+                                <!-- imagens por JavaScript -->
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#popup-carousel"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#popup-carousel"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </button>
+                        </div>
                     </div>
                 </div>
-                <!--COLUNA DIREITA-->
-                <div class='col-xl-6 col-sm-12 half-height'>
-                    <div class='position-absolute top-0 end-0 p-3'>
-                        <button type='button' class='btn-close' aria-label='Fechar' onclick='fecharPopup()'></button>
+                <!-- Coluna direita -->
+                <div class="col-xl-6 col-sm-12 half-height">
+                    <div class="position-absolute top-0 end-0 p-3">
+                        <button type="button" class="btn-close" aria-label="Fechar" onclick="fecharPopup()"></button>
                     </div>
-                    <div class='text-dark p-3'>
-                        <!--PHP: NOME-->
-                        <h2>nome</h2>
-                        <!--PHP: DESCRIÇÃO-->
-                        <p>{$id}</p>
-                        <!--PHP: CATEGORIA-->
-                        <p>categ</p>
+                    <div class="text-dark p-3">
+                        <h2 id="popup-nome"></h2>
+                        <p id="popup-desc"></p>
+                        <p id="popup-cate"></p>
+                        <p id="popup-id" style="font-weight:bold"></p>
                     </div>
                 </div>
             </div>
-        </div>";
+        </div>
 
-        $conn->close();
-            ?>
+
     </div>
 
     <!-- FOOTER -->
@@ -157,4 +180,14 @@
     </footer>
 </body>
 
+<script src="../../Controller/Script.js" type="text/javascript"></script>
+
 </html>
+
+
+
+
+
+<!-- <div class='catalog-card'
+    style='background-image: url(img/{$foto});'
+    onclick=\"abrirPopup('{$row['Cat_nome']}', '{$row['Cat_desc']}', '{$row['Cat_cate']}', '{$id}')\"> -->
