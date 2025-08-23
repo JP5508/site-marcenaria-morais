@@ -85,43 +85,42 @@
         </div>
 
         <?php
-        //<!--CATÁLOGO-->
-        echo "<div class='container-fluid' id='catalogo'>";
+require '../../Model/Conexao.php';
 
-        require '../../Model/Conexao.php';
+echo "<div class='container-fluid' id='catalogo'>";
 
-        $sql = "SELECT Cat_id, Cat_img1, Cat_nome, Cat_cate, Cat_desc FROM Catalogo";
-        $result = $conn->query($sql);
+$sql = "SELECT Cat_id, Cat_img1, Cat_img2, Cat_img3, Cat_img4, Cat_nome, Cat_cate, Cat_desc FROM Catalogo";
+$result = $conn->query($sql);
 
-        if ($result->num_rows > 0) {
-            echo "<div class='catalog-container'>";
-            while ($row = $result->fetch_assoc()) {
-                $nome = $row['Cat_nome'];
-                $desc = $row['Cat_desc'];
-                $cate = $row['Cat_cate'];
-                $img1 = !empty($row['Cat_img1']) ? $row['Cat_img1'] : '';
-                $img2 = !empty($row['Cat_img2']) ? $row['Cat_img2'] : '';
-                $img3 = !empty($row['Cat_img3']) ? $row['Cat_img3'] : '';
-                $id = $row['Cat_id'];
+if ($result->num_rows > 0) {
+    echo "<div class='catalog-container'>";
+    while ($row = $result->fetch_assoc()) {
+        $nome = $row['Cat_nome'];
+        $desc = $row['Cat_desc'];
+        $cate = $row['Cat_cate'];
+        $id = $row['Cat_id'];
 
-                echo "
-<div class='catalog-card' style='background-image: url(img/{$img1});'
-    onclick=\"abrirPopup('{$nome}', '{$desc}', '{$cate}', '{$id}', '{$img1}', '{$img2}', '{$img3}')\">
-                    <div class='overlay'>'
-                    <h3>{$row['Cat_nome']}</h3>
-                    <p>{$row['Cat_desc']}</p>
-                    </div>
+        $img1 = !empty($row['Cat_img1']) ? $row['Cat_img1'] : '';
+        $img2 = !empty($row['Cat_img2']) ? $row['Cat_img2'] : '';
+        $img3 = !empty($row['Cat_img3']) ? $row['Cat_img3'] : '';
+        $img4 = !empty($row['Cat_img4']) ? $row['Cat_img4'] : '';
 
-                    </div>";
-            }
-            echo "</div>";
-        }
+        echo "
+        <div class='catalog-card' style='background-image: url(img/{$img1});'
+            onclick=\"abrirPopup('{$nome}', '{$desc}', '{$cate}', '{$id}', '{$img1}', '{$img2}', '{$img3}', '{$img4}')\">
+            <div class='overlay'>
+                <h3>{$nome}</h3>
+                <p>{$desc}</p>
+            </div>
+        </div>";
+    }
+    echo "</div>";
+}
 
+$conn->close();
+echo "</div>";
+?>
 
-
-        echo "</div>";
-        $conn->close();
-        ?>
 
 
         <!--POPUP-->
@@ -136,9 +135,7 @@
                 <div class="col-xl-6 col-sm-12">
                     <div id="popup-img" class="text-white p-3 rounded half-height bg-secundaria">
                         <div id="popup-carousel" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner" id="carousel-inner">
-                                <!-- imagens por JavaScript -->
-                            </div>
+                            <div class="carousel-inner" id="carousel-inner"></div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#popup-carousel"
                                 data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon"></span>
@@ -148,6 +145,7 @@
                                 <span class="carousel-control-next-icon"></span>
                             </button>
                         </div>
+
                     </div>
                 </div>
                 <!-- Coluna direita -->
