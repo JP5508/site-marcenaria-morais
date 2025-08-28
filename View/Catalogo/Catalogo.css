@@ -102,7 +102,7 @@ footer {
     max-width: 100%;
     max-height: 80vh;
     border-radius: 10px;
-    object-fit: contain;
+    /* object-fit: contain; */
 }
 
 #popup .popup-nav {
@@ -159,6 +159,12 @@ footer {
     background-position: center;
     text-align: left;
     padding-left: 20px;
+}
+
+#popup-cate{
+    color: var(--branco);
+    background-color: var(--primaria);
+    background-size: auto;
 }
 
 /*-------------------*/
@@ -325,8 +331,8 @@ footer {
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(0,0,0,0.6);
-    color: #fff;
+    background: var(--primaria);
+    color: var(--branco);
     padding: 10px;
     opacity: 0;
     transition: 0.3s;

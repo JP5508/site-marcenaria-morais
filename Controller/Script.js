@@ -1,9 +1,8 @@
-function abrirPopup(nome, desc, cate, id, ...imagens) {
+function abrirPopup(nome, desc, cate, ...imagens) {
     // Preenche informações do popup
     document.getElementById('popup-nome').innerText = nome;
     document.getElementById('popup-desc').innerText = desc;
     document.getElementById('popup-cate').innerText = cate;
-    document.getElementById('popup-id').innerText = "ID: " + id;
 
     // Preenche o carousel
     const carouselInner = document.getElementById('carousel-inner');

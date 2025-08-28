@@ -98,7 +98,6 @@ if ($result->num_rows > 0) {
         $nome = $row['Cat_nome'];
         $desc = $row['Cat_desc'];
         $cate = $row['Cat_cate'];
-        $id = $row['Cat_id'];
 
         $img1 = !empty($row['Cat_img1']) ? $row['Cat_img1'] : '';
         $img2 = !empty($row['Cat_img2']) ? $row['Cat_img2'] : '';
@@ -107,7 +106,7 @@ if ($result->num_rows > 0) {
 
         echo "
         <div class='catalog-card' style='background-image: url(img/{$img1});'
-            onclick=\"abrirPopup('{$nome}', '{$desc}', '{$cate}', '{$id}', '{$img1}', '{$img2}', '{$img3}', '{$img4}')\">
+            onclick=\"abrirPopup('{$nome}', '{$desc}', '{$cate}', '{$img1}', '{$img2}', '{$img3}', '{$img4}')\">
             <div class='overlay'>
                 <h3>{$nome}</h3>
                 <p>{$desc}</p>
@@ -124,11 +123,8 @@ echo "</div>";
 
 
         <!--POPUP-->
-
-        <!--FUNDO BEGE-->
         <div id="popup-overlay" style="visibility: hidden; opacity: 0;" onclick="fecharPopup()"></div>
 
-        <!-- Popup -->
         <div class="col-xl-6 col-sm-11 bg-secundaria-alt rounded p-4" id="popup">
             <div class="row fper-height">
                 <!-- Coluna esquerda -->
@@ -154,10 +150,9 @@ echo "</div>";
                         <button type="button" class="btn-close" aria-label="Fechar" onclick="fecharPopup()"></button>
                     </div>
                     <div class="text-dark p-3">
-                        <h2 id="popup-nome"></h2>
+                        <h2 id="popup-nome" style="font-weight:bold"></h2>
                         <p id="popup-desc"></p>
                         <p id="popup-cate"></p>
-                        <p id="popup-id" style="font-weight:bold"></p>
                     </div>
                 </div>
             </div>
@@ -181,11 +176,3 @@ echo "</div>";
 <script src="../../Controller/Script.js" type="text/javascript"></script>
 
 </html>
-
-
-
-
-
-<!-- <div class='catalog-card'
-    style='background-image: url(img/{$foto});'
-    onclick=\"abrirPopup('{$row['Cat_nome']}', '{$row['Cat_desc']}', '{$row['Cat_cate']}', '{$id}')\"> -->
