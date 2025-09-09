@@ -9,13 +9,13 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* importante pra evitar overflow */
 }
 
 body {
     background-color: var(--fundo);
     height: 100vh;
     width: 100%;
+    /* margin-bottom: 100px; */
     color: var(--branco);
     background-image: url(./img/Padrao_Fundo.png);
     background-size: 100px;
@@ -23,15 +23,16 @@ body {
 
 
 nav {
-    position: fixed;
-    z-index: 10;
     background-color: var(--primaria-alt);
     height: 10vh;
     width: 100%;
 }
 
 footer {
+    /* background-color: var(--primaria);
+  height: 100%; */
     width: 100%;
+    /* color: var(--secundaria-alt); */
     bottom: 0%;
     left: 0;
 }
@@ -39,133 +40,6 @@ footer {
 /*----------------*/
 /* ------ID------ */
 /*----------------*/
-
-#links {
-    height: 100%;
-    width: 50%;
-    float: right;
-    align-content: center;
-}
-
-#home {
-    height: 90vh;
-    padding-top: 100px;
-    scroll-margin-top: 10vh;
-    color: var(--branco);
-    background: linear-gradient(rgba(0, 0, 0, 0.2), var(--fundo)), url(./img/fundo_home.jpg);
-    background-size: cover;
-    background-position: center;
-}
-
-#qualidade {
-    height: 100%;
-    scroll-margin-top: 10vh;
-    padding-top: 50px;
-    text-align: left;
-    font-size: 14px;
-}
-
-#sobre {
-    height: 100%;
-    scroll-margin-top: 10vh;
-    padding-top: 50px;
-    text-align: left;
-    color: var(--branco);
-}
-
-#catalogo {
-    height: 100%;
-    scroll-margin-top: 10vh;
-    padding-top: 50px;
-}
-
-#popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.5);
-    display: none; /* começa escondido */
-    flex-direction: column;
-    align-items: center;
-    max-width: 800px;
-    width: 90%;
-    max-height: 90%;
-    overflow: hidden;
-    z-index: 1000;
-    background-color: var(--secundaria);
-}
-
-#popup img {
-    max-width: 100%;
-    max-height: 80vh;
-    border-radius: 10px;
-    /* object-fit: contain; */
-}
-
-#popup .popup-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 2rem;
-    color: var(--branco);
-    cursor: pointer;
-    user-select: none;
-    padding: 10px;
-    background-color: rgba(0,0,0,0.3);
-    border-radius: 50%;
-}
-#popup .popup-prev {
-    left: 10px;
-}
-
-#popup .popup-next {
-    right: 10px;
-}
-
-#popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
-    z-index: 999;
-    opacity: 0;
-    transition: opacity 0.3s;
-    display: none;
-}
-
-#localizacao {
-    height: 100%;
-    scroll-margin-top: 10vh;
-    padding-top: 50px;
-}
-
-#redes {
-    height: 100%;
-    scroll-margin-top: 10vh;
-    padding-top: 50px;
-}
-
-#fundo-locate {
-    border-radius: 10px;
-    padding-top: 20px;
-    padding-bottom: 10px;
-    background: linear-gradient(var(--fundo), var(--acento));
-    background-size: cover;
-    background-position: center;
-    text-align: left;
-    padding-left: 20px;
-}
-
-#popup-cate{
-    color: var(--branco);
-    background-color: var(--primaria);
-    background-size: auto;
-}
 
 /*-------------------*/
 /* ------CLASS------ */
@@ -176,63 +50,6 @@ footer {
 .logo_navbar {
     height: 100%;
     padding-left: 5%;
-}
-
-.logo_home {
-    width: 80%;
-    margin: auto;
-}
-
-/* -----IMAGENS----- */
-
-.img_perfil {
-    width: 200px;
-    border-radius: 50%;
-}
-
-/* ------ICONES----- */
-
-.icon_quali {
-    width: 80%;
-    border-radius: 10%;
-    border: 2px solid var(--preto);
-    background-color: var(--primaria);
-}
-
-.icon_insta {
-    width: 80%;
-}
-
-/* -------GBS------- */
-
-.fundo-sobre {
-    background: linear-gradient(rgba(0, 0, 0, 0.8), var(--fundo)), url(./img/fundo_sobre.png);
-}
-
-.bg-insta {
-    background: linear-gradient(#DE2D75, #8D3EB3);
-}
-
-/* ------TITLES----- */
-
-.fundo-titulo {
-    width: 20rem;
-    height: 2rem;
-    margin-left: auto;
-    margin-right: auto;
-    z-index: -1;
-    position: relative;
-    top: -1.0rem;
-}
-
-.titulo-qualidade {
-    width: 20%;
-    height: 1rem;
-    margin-right: auto;
-    background-color: var(--primaria);
-    z-index: -1;
-    position: relative;
-    top: -0.5rem;
 }
 
 /* ----FORMATTING--- */
@@ -259,9 +76,48 @@ footer {
 
 .nav-cat {
     position: relative;
+    /* z-index: 10; */
     background-color: var(--primaria-alt);
     height: 10vh;
     width: 100%;
+}
+
+/* --- GRID DE PRODUTOS --- */
+.produto {
+  cursor: pointer;
+  transition: transform .2s;
+}
+
+.produto:hover {
+  transform: scale(1.03);
+}
+
+.produto img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: .5rem;
+}
+
+.produto-nome {
+  background: var(--primaria-alt);
+  padding: .3rem;
+  text-align: center;
+  border-radius: 0 0 .5rem .5rem;
+  font-weight: 500;
+}
+
+/* --- POPUP --- */
+.modal-content {
+  background: #e6c7aa;
+  color: #000;
+}
+
+.carousel-inner img {
+  object-fit: contain;
+  height: 350px;
+  background: #fff;
+  border-radius: .5rem;
 }
 
 /* ------OTHERS----- */
@@ -269,18 +125,6 @@ footer {
 .conteudo {
     padding-top: 10vh;
     text-align: center;
-}
-
-.link {
-    text-decoration: none;
-    color: var(--branco);
-    margin-left: 10px;
-    font-size: 15px;
-    font-weight: bold;
-}
-
-.link:hover {
-    color: var(--secundaria);
 }
 
 .termo {
@@ -292,56 +136,4 @@ footer {
     text-decoration: none;
     color: var(--secundaria-alt);
     font-weight: bold;
-}
-
-.btn-cat {
-    color: var(--preto);
-    background-color: var(--secundaria-alt);
-}
-
-.btn-cat:hover {
-    color: var(--branco);
-    background-color: var(--secundaria);
-}
-
-/*-------------------*/
-/* ----CATÁLOGO----- */
-/*-------------------*/
-
-.catalog-container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-auto-rows: calc(100% / 8);
-    gap: 20px;
-    padding: 20px;
-}
-
-.catalog-card {
-    background-size: cover;
-    background-position: center;
-    height: 200px;
-    border-radius: 10px;
-    position: relative;
-    cursor: pointer;
-    overflow: hidden;
-}
-
-.catalog-card .overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: var(--primaria);
-    color: var(--branco);
-    padding: 10px;
-    opacity: 0;
-    transition: 0.3s;
-}
-
-.catalog-card:hover .overlay {
-    opacity: 1;
-}
-
-.half-height {
-    height: 100%;
 }

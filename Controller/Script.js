@@ -1,60 +1,33 @@
-function abrirPopup(nome, desc, cate, ...imagens) {
-    // Preenche informações do popup
-    document.getElementById('popup-nome').innerText = nome;
-    document.getElementById('popup-desc').innerText = desc;
-    document.getElementById('popup-cate').innerText = cate;
+// Script responsável por carregar dados no popup do catálogo
 
-    // Preenche o carousel
-    const carouselInner = document.getElementById('carousel-inner');
-    carouselInner.innerHTML = "";
+const produtoModal = document.getElementById('produtoModal');
 
-    imagens.forEach((img, index) => {
-        if (!img || img === '') return;
+produtoModal.addEventListener('show.bs.modal', function (event) {
+  const card = event.relatedTarget;
 
-        const item = document.createElement('div');
-        item.className = 'carousel-item' + (index === 0 ? ' active' : '');
+  // Captura atributos do card clicado
+  const nome = card.getAttribute('data-nome');
+  const desc = card.getAttribute('data-desc');
+  const cate = card.getAttribute('data-cate');
+  const imgs = [
+    card.getAttribute('data-img1'),
+    card.getAttribute('data-img2'),
+    card.getAttribute('data-img3'),
+    card.getAttribute('data-img4')
+  ].filter(src => src && src !== 'img/'); // remove valores vazios
 
-        const imgTag = document.createElement('img');
-        imgTag.src = "img/" + img;
-        imgTag.className = 'd-block w-100';
-        imgTag.alt = `Imagem ${index + 1}`;
-        imgTag.style.objectFit = 'contain';
-        imgTag.style.maxHeight = '100%';
+  // Preenche informações
+  document.getElementById('popup-nome').textContent = nome;
+  document.getElementById('popup-desc').textContent = desc;
+  document.getElementById('popup-cate').textContent = cate;
 
-        item.appendChild(imgTag);
-        carouselInner.appendChild(item);
-    });
-
-    // Inicializa ou reinicia o carrossel
-    const carouselElement = document.getElementById('popup-carousel');
-    let carouselInstance = bootstrap.Carousel.getInstance(carouselElement);
-    if (!carouselInstance) {
-        carouselInstance = new bootstrap.Carousel(carouselElement, {
-            interval: false,
-            ride: false
-        });
-    } else {
-        carouselInstance.to(0);
-    }
-
-    // Mostra popup e overlay
-    const popup = document.getElementById('popup');
-    const overlay = document.getElementById('popup-overlay');
-    popup.style.display = 'flex';
-    overlay.style.display = 'block';
-    setTimeout(() => {
-        popup.style.opacity = '1';
-        overlay.style.opacity = '1';
-    }, 10);
-}
-
-function fecharPopup() {
-    const popup = document.getElementById('popup');
-    const overlay = document.getElementById('popup-overlay');
-    popup.style.opacity = '0';
-    overlay.style.opacity = '0';
-    setTimeout(() => {
-        popup.style.display = 'none';
-        overlay.style.display = 'none';
-    }, 300);
-}
+  // Preenche carrossel
+  const carouselInner = document.getElementById('carousel-inner');
+  carouselInner.innerHTML = "";
+  imgs.forEach((src, i) => {
+    carouselInner.innerHTML += `
+      <div class="carousel-item ${i === 0 ? 'active' : ''}">
+        <img src="${src}" class="d-block w-100">
+      </div>`;
+  });
+});

@@ -1,164 +1,103 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <title>Catálogo</title>
-    <link rel="icon" type="image/x-icon" href="../img/nova-logo_quadrado.png">
-    <!-- META TAGS -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="icon" type="image/x-icon" href="../img/nova-logo_quadrado.png">
 
-    <!-- BOOTSTRAP CSS -->
+    <!-- BOOTSTRAP e CSS -->
     <link href="../Boostrap/bootstrap.css" rel="stylesheet" />
     <link href="./Catalogo.css" rel="stylesheet" />
-
-
-
 </head>
 
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- NAVBAR -->
-    <nav class="nav-cat">
+    <nav>
         <a href="../Home/home.html">
             <img class="logo_navbar" src="./img/logo_branca.png">
         </a>
     </nav>
 
-    <!-- SITE -->
-    <div class="container-fluid">
+    <!-- CONTEÚDO -->
+    <div class="container conteudo">
+        <div class="row" id="catalogo">
+            <?php
+      require '../../Model/Conexao.php';
 
-        <div class="container-fluid pb-5" id="sobre">
-            <!--CONTEÚDO-->
-            <div class="container-fluid">
-                <div class="row justify-content-left">
+      // LIMITA 24 produtos por página (4 colunas x 6 linhas)
+      $sql = "SELECT Cat_id, Cat_nome, Cat_desc, Cat_cate, Cat_img1, Cat_img2, Cat_img3, Cat_img4
+              FROM catalogo LIMIT 24";
+      $result = $conn->query($sql);
 
-                    <div class="col-xl-12 col-sm-10 rounded p-4">
-                        <!--CAMPO DE PESQUISA-->
-                        <div class="col-xl-2 col-sm-5 form-group">
-                            <!-- <input type="text" class="form-control" id="search" name="search" placeholder="Pesquisar"> -->
-                            <!--CAMPO DE PESQUISA-->
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Pesquisar" id="search">
-                                <button class="btn btn-light" type="button">
-                                    <i class="bi bi-search"></i>
-                                </button>
-                            </div>
-                        </div>
+      if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+          $id = $row['Cat_id'];
+          $nome = $row['Cat_nome'];
+          $desc = $row['Cat_desc'];
+          $cate = $row['Cat_cate'];
+          $img1 = $row['Cat_img1'];
+          $img2 = $row['Cat_img2'];
+          $img3 = $row['Cat_img3'];
+          $img4 = $row['Cat_img4'];
 
-                        <div class="col-xl-12 col-sm-5">
-                            <!--FILTROS-->
-                            <div class="mb-3">
-                                <h6>Tamanhos</h6>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="filtroGrande" checked>
-                                    <label class="form-check-label" for="filtroGrande">
-                                        Grande
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="filtroMedio">
-                                    <label class="form-check-label" for="filtroMedio">
-                                        Médio
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="filtroPequeno">
-                                    <label class="form-check-label" for="filtroPequeno">
-                                        Pequeno
-                                    </label>
-                                </div>
-                            </div>
-
-                            <!--CATEGORIAS-->
-                            <div>
-                                <h6>Categorias</h6>
-                                <span class="badge bg-secondary">Cadeira</span>
-                                <span class="badge bg-secondary">Mesa</span>
-                                <span class="badge bg-secondary">Cozinha</span>
-                                <span class="badge bg-secondary">Quarto</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          echo "
+          <!-- CARD DE PRODUTO -->
+          <div class='col-lg-3 col-md-4 col-sm-6 mb-4'>
+            <div class='produto'
+              data-bs-toggle='modal'
+              data-bs-target='#produtoModal'
+              data-nome='{$nome}'
+              data-desc='{$desc}'
+              data-cate='{$cate}'
+              data-img1='img/{$img1}'
+              data-img2='img/{$img2}'
+              data-img3='img/{$img3}'
+              data-img4='img/{$img4}'>
+              <img src='img/{$img1}' alt='{$nome}'>
+              <div class='produto-nome'>{$nome}</div>
             </div>
+          </div>";
+        }
+      }
+      $conn->close();
+      ?>
         </div>
+    </div>
 
-        <?php
-require '../../Model/Conexao.php';
-
-echo "<div class='container-fluid' id='catalogo'>";
-
-$sql = "SELECT Cat_id, Cat_img1, Cat_img2, Cat_img3, Cat_img4, Cat_nome, Cat_cate, Cat_desc FROM Catalogo";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    echo "<div class='catalog-container'>";
-    while ($row = $result->fetch_assoc()) {
-        $nome = $row['Cat_nome'];
-        $desc = $row['Cat_desc'];
-        $cate = $row['Cat_cate'];
-
-        $img1 = !empty($row['Cat_img1']) ? $row['Cat_img1'] : '';
-        $img2 = !empty($row['Cat_img2']) ? $row['Cat_img2'] : '';
-        $img3 = !empty($row['Cat_img3']) ? $row['Cat_img3'] : '';
-        $img4 = !empty($row['Cat_img4']) ? $row['Cat_img4'] : '';
-
-        echo "
-        <div class='catalog-card' style='background-image: url(img/{$img1});'
-            onclick=\"abrirPopup('{$nome}', '{$desc}', '{$cate}', '{$img1}', '{$img2}', '{$img3}', '{$img4}')\">
-            <div class='overlay'>
-                <h3>{$nome}</h3>
-                <p>{$desc}</p>
-            </div>
-        </div>";
-    }
-    echo "</div>";
-}
-
-$conn->close();
-echo "</div>";
-?>
-
-
-
-        <!--POPUP-->
-        <div id="popup-overlay" style="visibility: hidden; opacity: 0;" onclick="fecharPopup()"></div>
-
-        <div class="col-xl-6 col-sm-11 bg-secundaria-alt rounded p-4" id="popup">
-            <div class="row fper-height">
-                <!-- Coluna esquerda -->
-                <div class="col-xl-6 col-sm-12">
-                    <div id="popup-img" class="text-white p-3 rounded half-height bg-secundaria">
-                        <div id="popup-carousel" class="carousel slide" data-bs-ride="carousel">
+    <!-- POPUP MODAL -->
+    <div class="modal fade" id="produtoModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content p-3">
+                <div class="row">
+                    <!-- Carrossel -->
+                    <div class="col-md-6">
+                        <div id="carouselProduto" class="carousel slide" data-bs-ride="false">
                             <div class="carousel-inner" id="carousel-inner"></div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#popup-carousel"
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselProduto"
                                 data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon"></span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#popup-carousel"
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselProduto"
                                 data-bs-slide="next">
                                 <span class="carousel-control-next-icon"></span>
                             </button>
                         </div>
+                    </div>
 
-                    </div>
-                </div>
-                <!-- Coluna direita -->
-                <div class="col-xl-6 col-sm-12 half-height">
-                    <div class="position-absolute top-0 end-0 p-3">
-                        <button type="button" class="btn-close" aria-label="Fechar" onclick="fecharPopup()"></button>
-                    </div>
-                    <div class="text-dark p-3">
-                        <h2 id="popup-nome" style="font-weight:bold"></h2>
+                    <!-- Informações -->
+                    <div class="col-md-6">
+                        <div class="d-flex justify-content-end">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <h3 id="popup-nome"></h3>
                         <p id="popup-desc"></p>
-                        <p id="popup-cate"></p>
+                        <p><strong>Categoria:</strong> <span id="popup-cate"></span></p>
                     </div>
                 </div>
             </div>
         </div>
-
-
     </div>
 
     <!-- FOOTER -->
@@ -171,8 +110,11 @@ echo "</div>";
             </div>
         </div>
     </footer>
-</body>
 
-<script src="../../Controller/Script.js" type="text/javascript"></script>
+    <!-- BOOTSTRAP JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- SCRIPT CUSTOM -->
+    <script src="./Script.js"></script>
+</body>
 
 </html>
