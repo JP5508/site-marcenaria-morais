@@ -1,5 +1,5 @@
 /* Catalogo.css
-   Versão ajustada: hover overlay, hint "Clique para mais informações",
+  Versão ajustada: hover overlay, hint "Clique para mais informações",
    correções de layout e responsividade.
    Comentários indicam localização / funcionalidade. */
 
@@ -16,13 +16,14 @@
 /*------------------*/
 /* ------BODY------ */
 /*------------------*/
+/* Localização: estilos globais da página */
 body {
   background-color: var(--fundo);
   color: var(--branco);
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
   background-image: url(./img/Padrao_Fundo.png);
   background-size: 100px;
-  min-height: 100vh;
+  min-height: 100vh; /* evita que footer sobreponha conteúdo */
 }
 
 /* NAVBAR / LOGO (localização) */
@@ -36,11 +37,18 @@ footer { width:100%; }
 /* ------LAYOUT------*/
 /*-------------------*/
 .container { max-width: 1180px; }
+
+/* conteudo principal (padding para não ficar abaixo do nav) */
 .conteudo { padding-top: 90px; text-align: center; }
+
+/* utilitários */
+.center { text-align: center; }
+.text-muted { opacity:.85; }
 
 /*-------------------*/
 /* --- GRID PRODUTO --*/
 /*-------------------*/
+/* Localização: cartão do produto no grid */
 .produto {
   background: transparent;
   border-radius: 8px;
@@ -49,8 +57,11 @@ footer { width:100%; }
   position: relative;
   display: block;
 }
+
+/* elevação discreta no hover */
 .produto:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(0,0,0,.45); cursor: pointer; }
 
+/* imagem principal do card */
 .produto img {
   width: 100%;
   height: 220px;
@@ -59,6 +70,7 @@ footer { width:100%; }
   border-radius: 8px;
 }
 
+/* faixa com o nome (rodapé da imagem) */
 .produto-nome {
   background: var(--primaria-alt);
   padding: .5rem .75rem;
@@ -69,12 +81,13 @@ footer { width:100%; }
   margin-top: .5rem;
 }
 
-/* Overlay e hint */
+/* overlay que aparece ao passar o mouse (faixa vinho do mock) */
+/* funcionalidade: mostra título/desc curto e hint "Clique para mais informações" */
 .produto .hover-overlay {
   position: absolute;
   left: 8px;
   right: 8px;
-  bottom: 56px;
+  bottom: 56px; /* fica sobre a imagem, acima do nome */
   background: linear-gradient(180deg, rgba(111,33,48,0.0) 0%, rgba(111,33,48,0.95) 100%);
   color: #fff;
   padding: .6rem .8rem;
@@ -82,11 +95,14 @@ footer { width:100%; }
   transform: translateY(6px);
   opacity: 0;
   transition: transform .18s ease, opacity .18s ease;
-  pointer-events: none;
+  pointer-events: none; /* não bloqueia o clique no card */
 }
+
+/* texto menor dentro do overlay */
 .produto .hover-title { font-weight:700; font-size:0.95rem; margin-bottom:4px; }
 .produto .hover-sub { font-size:0.82rem; opacity: .95; }
 
+/* hint (pequeno rótulo) canto inferior direito da imagem */
 .produto .hint {
   position: absolute;
   right: 14px;
@@ -101,13 +117,18 @@ footer { width:100%; }
   transition: all .18s ease;
   pointer-events: none;
 }
+
+/* ao hover do produto, mostra overlay e hint */
 .produto:hover .hover-overlay,
 .produto:hover .hint {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* FILTROS */
+/*-------------------*/
+/* --- FILTROS ----- */
+/*-------------------*/
+/* badge-btn: botões de categoria (localização) */
 .badge-btn {
   border: 0;
   background: #2b2b2b;
@@ -120,15 +141,20 @@ footer { width:100%; }
 }
 .badge-btn.active { background: var(--primaria-alt); color: #fff; }
 
+/* checkboxes de tamanho (pequeno ajuste estético) */
 .form-check-input { margin-top: .15rem; }
 
-/* MODAL / CARROSSEL */
+/*-------------------*/
+/* --- MODAL / POPUP - LOCALIZAÇÃO --- */
+/*-------------------*/
 .modal-content {
   border-radius: 10px;
   overflow: hidden;
-  background: #e9cdb6;
+  background: #e9cdb6; /* tom bege conforme referência */
   color: #111;
 }
+
+/* carrossel: centraliza imagem e limita altura */
 .carousel-inner {
   min-height: 360px;
   display: flex;
@@ -146,7 +172,7 @@ footer { width:100%; }
   box-shadow: 0 8px 24px rgba(0,0,0,.18);
 }
 
-/* RESPONSIVO */
+/* responsividade para telas pequenas */
 @media (max-width: 768px) {
   .carousel-inner img { max-height: 220px; padding: 8px; }
   .produto img { height: 160px; }
@@ -154,9 +180,14 @@ footer { width:100%; }
   .produto .hint { bottom: 76px; right: 10px; }
 }
 
-/* PAGINAÇÃO */
+/*-------------------*/
+/* --- PAGINAÇÃO --- */
+/*-------------------*/
 .pagination .page-link { background: #262626; color: #fff; border: 0; }
 .pagination .page-item.active .page-link { background: var(--primaria-alt); border-color: var(--primaria-alt); }
 
+/*-------------------*/
+/* --- OUTROS ----- */
+/*-------------------*/
 .termo { text-decoration: none; color: var(--secundaria-alt); }
 .termo:hover { color: var(--secundaria-alt); font-weight: bold; }
