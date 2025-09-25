@@ -1,0 +1,106 @@
+/*-------------------*/
+/* -------ROOT------ */
+/*-------------------*/
+
+:root {
+    --primary: #6B1A30;
+    --alt-primary: #A02748;
+    --secondary: #BEA38C;
+    --alt-secondary: #EECBAD;
+    --accent: #7D8288;
+    --background: #1E1E1E;
+    --white: #FFFFFF;
+    --black: #000000;
+    --error: #FF9B19;
+    --test: #9d00ff;
+}
+
+/*-------------------*/
+/* ---BACKGROUND---- */
+/*-------------------*/
+
+.bg-primary {
+    background-color: var(--primary);
+}
+
+.bg-alt-primary {
+    background-color: var(--alt-primary);
+}
+
+.bg-secondary {
+    background-color: var(--secondary);
+}
+
+.bg-alt-secondary {
+    background-color: var(--alt-secondary);
+}
+
+.bg-accent {
+    background-color: var(--accent);
+}
+
+.bg-background {
+    background-color: var(--background);
+}
+
+.bg-white {
+    background-color: var(--white);
+}
+
+.bg-black {
+    background-color: var(--black);
+}
+
+.bg-error {
+    background-color: var(--error);
+}
+
+.bg-test {
+    background-color: var(--test);
+    background-image: url(./img_test.jpg);
+    background-size: cover;
+}
+
+/*-------------------*/
+/* ------COLOR------ */
+/*-------------------*/
+
+.cor-primary {
+    color: var(--primary);
+}
+
+.cor-alt-primary {
+    color: var(--alt-primary);
+}
+
+.cor-secondary {
+    color: var(--secondary);
+}
+
+.cor-secondary-alt {
+    color: var(--alt-secondary);
+}
+
+.cor-accent {
+    color: var(--accent);
+}
+
+.cor-background {
+    color: var(--background);
+}
+
+.cor-white {
+    color: var(--white);
+}
+
+.cor-black {
+    color: var(--black);
+}
+
+.cor-error {
+    color: var(--error);
+}
+
+.cor-test {
+    color: var(--test);
+}
