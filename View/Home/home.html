@@ -17,14 +17,14 @@
     <!-- NAVBAR -->
     <nav>
         <!--LOGO-->
-        <img src="./img/logo_branca.png">
+        <img src="./img/logo_white.png">
         <!--NAVIGATION LINKS-->
         <a href="#home">HOME</a>
         <a href="#quality">QUALIDADE</a>
         <a href="#about">SOBRE</a>
         <a href="#catalog">CATÁLOGO</a>
         <a href="#adress">LOCALIZAÇÃO</a>
-        <a href="#nets">REDES</a>
+        <a href="#netws">REDES</a>
     </nav>
 
     <!-- SITE -->
@@ -32,20 +32,22 @@
 
         <!--HOME-->
         <section id="home">
-            <img src="./img/logo_nome_amarela.png"><br>
-            <h3>Com mais de 08 anos de experiência, a Marcenaria Morais foi fundada por Raphael de Morais em
-                novembro de 2022, unindo tradição, inovação e propósito. Cada peça que criamos é pensada para
-                transformar ambientes e valorizar cada detalhe, com excelência e dedicação</h3>
-            <h3>Acreditamos que o trabalho bem-feito reflete não apenas técnica, mas também princípios sólidos,
-                trazendo significado para cada projeto. Nosso compromisso é entregar móveis planejados que inspirem
-                e tragam conforto, sempre com qualidade e atenção aos detalhes</h3>
+            <div class="home">
+                <img src="./img/logo_yellow_name.png"><br>
+                <h3>Com mais de 08 anos de experiência, a Marcenaria Morais foi fundada por Raphael de Morais em
+                    novembro de 2022, unindo tradição, inovação e propósito. Cada peça que criamos é pensada para
+                    transformar ambientes e valorizar cada detalhe, com excelência e dedicação</h3>
+                <h3>Acreditamos que o trabalho bem-feito reflete não apenas técnica, mas também princípios sólidos,
+                    trazendo significado para cada projeto. Nosso compromisso é entregar móveis planejados que inspirem
+                    e tragam conforto, sempre com qualidade e atenção aos detalhes</h3>
+            </div>
         </section>
 
         <!--QUALITY-->
         <section id="quality">
             <!-- CARD 'MISSÃO' -->
-            <div class="card">
-                <img src="./img/icon_qualidade.png">
+            <div class="card-quali">
+                <img src="./img/icon_quality.png">
                 <div>
                     <h2>MISSÃO<div class="title-back"></div>
                     </h2>
@@ -58,8 +60,8 @@
             </div>
 
             <!-- CARD 'VISÃO' -->
-            <div class="card">
-                <img src="./img/icon_qualidade.png">
+            <div class="card-quali">
+                <img src="./img/icon_quality.png">
                 <div>
                     <h2>VISÃO<div class="title-back"></div>
                     </h2>
@@ -71,8 +73,8 @@
             </div>
 
             <!-- CARD 'VALORES' -->
-            <div class="card">
-                <img src="./img/icon_qualidade.png">
+            <div class="card-quali">
+                <img src="./img/icon_quality.png">
                 <div>
                     <h2>VALORES<div class="title-back"></div>
                     </h2>
@@ -91,116 +93,89 @@
             <h2>SOBRE<div class="title-back"></div>
             </h2>
             <!--CONTENT-->
-            <div class="">
-                <!-- PAREI AQUI -->
-                <!--LEFT-->
-                    <img class="img_perfil" src="./img/img_perfil.jpg">
-                <!--RIGHT-->
+            <div class="about">
+                <!--LEFT COLUMN-->
+                <img class="img_perfil" src="./img/img_profile.jpg">
+                <!--RIGHT COLUMN-->
+                <div class="txt-about">
                     <br>
-                    <h2>Raphael de Morais</h2>
+                    <h1>Raphael de Morais</h1>
                     <p>place-holder place-holder place-holder place-holder place-holder place-holder
                         place-holder place-holder place-holder place-holder...</p><br>
                     <br>
+                </div>
             </div>
         </section>
 
-        <!--CATÁLOGO-->
-        <div class="container-fluid" id="catalogo">
-            <!--TÍTULO-->
-            <h2 class="text-center text-white">CATÁLOGO<div class="fundo-titulo bg-primaria"></div>
+        <!--CATALOG-->
+        <section id="catalog">
+            <!--TITLE-->
+            <h2>CATÁLOGO<div class="title-back"></div>
             </h2>
-            <!--CONTEÚDO-->
-            <div class="container-fluid fper-height">
-                <div class="row justify-content-center fper-height">
-                    <!--FUNDO BEGE-->
-                    <div class="col-xl-8 col-sm-11 bg-secundaria-alt rounded p-4">
-                        <!--COLUNAS INTERNAS-->
-                        <div class="row fper-height">
-                            <!--COLUNA ESQUERDA-->
-                            <div class="col-xl-3 col-sm-12 half-height">
-                                <div class="text-dark p-3">
-                                    <h2>Diversas opções para escolher</h2>
-                                    <p>ofereço variedade de móveis em diferentes tamanhos, cores e estilos.</p>
-                                    <a class="btn bg-primaria text-white m-5" href="../Catalogo/catalogo.php">Confira
-                                        mais</a>
-                                </div>
-                            </div>
-                            <!--COLUNA DIREITA-->
-                            <div class="col-xl-9 col-sm-12">
-                                <div class="text-white p-3 rounded half-height bg-secundaria">
-                                    <!--AQUI É ONDE FICA UM "VISLUMBRE" DO CATÁLOGO-->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <!--BEIGE BACKGROUND-->
+            <div class="catalog">
+                <!--LEFT COLUMN-->
+                <div class="left-catalog">
+                    <h2>Diversas opções para escolher</h2>
+                    <p>ofereço variedade de móveis em diferentes tamanhos, cores e estilos.</p>
+                    <br><br>
+                    <a class="btn-catalog" href="../Catalog/catalog.php">Confira mais</a>
+                </div>
+                <!--RIGHT COLUMN-->
+                <div class="right-catalog">
+                    place-holder
+                    <!--HERE'S A GLIMPSE OF THE CATALOG-->
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!--LOCALIZAÇÃO-->
-        <div class="container-fluid" id="localizacao">
+        <!--ADRESS-->
+        <section id="adress">
             <!--TÍTULO-->
-            <h2 class="text-center text-white">LOCALIZAÇÃO<div class="fundo-titulo bg-acento"></div>
+            <h2>LOCALIZAÇÃO<div class="text-back"></div>
             </h2>
-            <!--CONTEÚDO-->
-            <div class="container-fluid fper-height">
-                <div class="row justify-content-center fper-height">
-                    <!--FUNDO CINZA-->
-                    <div class="col-xl-8 col-sm-11 bg-acento rounded p-4">
-                        <!--COLUNAS INTERNAS-->
-                        <div class="row fper-height">
-                            <!--COLUNA ESQUERDA-->
-                            <div class="col-xl-6 col-sm-12">
-                                <div class="bg-fundo text-white p-5 rounded fper-height">
-                                    <h4>São Paulo</h4>
-                                    <p>Bairro Jardim das Imbuias <br>
-                                        Rua Giovanni Romanelli, Nº 219 <br>
-                                        no CEP 04829-400</p>
-                                    <p>Aberto de segunda a sexta,<br>
-                                        das 00:00 até 00:00</p>
-                                    <p>(11)97065-7953</p>
-                                </div>
-                            </div>
-                            <!--COLUNA DIREITA-->
-                            <div class="col-xl-6 col-sm-12 p-3">
-                                <!--PLACE HOLDER MAPS-->
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1826.1915958816935!2d-46.70959214333626!3d-23.733711044648185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce4efd6f8623d5%3A0xfb88869361c275cb!2sRua%20Giovanni%20Romanelli%20-%20Jardim%20das%20Imbuias%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2004829-400!5e0!3m2!1spt-BR!2sbr!4v1750931020827!5m2!1spt-BR!2sbr"
-                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-                            </div>
-                        </div>
-                    </div>
+            <!--GRAY BACKGROUND-->
+            <div class="adress">
+                <!--LEFT COLUMN-->
+                <div class="left-adress">
+                    <h4>São Paulo</h4>
+                    <p>Bairro Jardim das Imbuias <br>
+                        Rua Giovanni Romanelli, Nº 219 <br>
+                        no CEP 04829-400</p>
+                    <p>Aberto de segunda a sexta,<br>
+                        das 00:00 até 00:00</p>
+                    <p>(11)97065-7953</p>
+                </div>
+                <!--RIGHT COLUMN-->
+                <div class="right-adress">
+                    <!--GOOGLE MAPS-->
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1826.1915958816935!2d-46.70959214333626!3d-23.733711044648185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce4efd6f8623d5%3A0xfb88869361c275cb!2sRua%20Giovanni%20Romanelli%20-%20Jardim%20das%20Imbuias%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2004829-400!5e0!3m2!1spt-BR!2sbr!4v1750931020827!5m2!1spt-BR!2sbr"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!--REDES-->
-        <div class="container fluid" id="redes">
-            <!--TÍTULO-->
-            <h2 class="text-center text-white">REDES SOCIAIS<div class="fundo-titulo bg-primaria-alt"></div>
+        <!--NETWORKS-->
+        <section id="netws">
+            <!--TITLE-->
+            <h2>REDES SOCIAIS<div class="title-back"></div>
             </h2>
-            <!--CONTEÚDO-->
-            <div class="container-fluid">
-                <div class="row justify-content-center">
-                    <!--CLUNA DO MEIO-->
-                    <div class="col-xl-3 col-sm-6 fper-height">
-                        <div class="bg-insta text-white p-3 rounded border border-white p-5">
-                            <img src="./img/icon_insta_branco.png" class="icon_insta">
-                            <h5 class="p-2 mt-5">Confira também o instagram da loja</h5>
-                            <a href="https://www.instagram.com/marcenaria.morais_/">
-                                <button class="btn btn-light">Veja mais!</button>
-                            </a>
-                        </div>
-                    </div>
+            <!--CONTENT-->
+            <div class="netws">
+                <div class="card-netws">
+                    <img src="./img/icon_colorful_instagram.png">
+                    <h5>Confira também o instagram da loja</h5>
+                    <a class="btn-netws" href="https://www.instagram.com/marcenaria.morais_/">Veja mais!</a>
                 </div>
             </div>
             <!--WEBSITE END-->
-        </div>
+            </>
     </main>
 
     <!-- FOOTER -->
     <footer>
-        <p>Copyright ©2025 <a href="src/html/termos.html">Termos de Serviço</a></p>
+        <p>Copyright ©2025 <a href="../Terms/terms.html">Termos de Serviço</a></p>
     </footer>
 </body>
 

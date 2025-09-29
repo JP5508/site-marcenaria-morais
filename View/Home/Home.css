@@ -30,7 +30,7 @@ nav {
     top: 0;
     position: sticky;
     grid-area: navbar;
-    height: 60px;
+    height: 10vh;
     background-color: var(--alt-primary);
     display: flex;
     justify-content: flex-end;
@@ -52,6 +52,7 @@ nav a:hover {
 
 nav img {
     margin-right: auto;
+    margin-left: 10px;
     height: 100%;
 }
 
@@ -97,8 +98,9 @@ section {
 /*----------------*/
 
 #home {
-    background-image: url(./img/fundo_home.jpg);
+    background-image: url(./img/background_home.jpg);
     text-align: center;
+    /* height: 90vh; */
 }
 
 #quality {
@@ -109,13 +111,49 @@ section {
 
 #about {
     text-align: center;
-    /* PAREI AQUI */
 }
+
+#catalog {
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    text-align: center;
+    height: 45vh;
+}
+
+#adress {
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    text-align: center;
+    height: 45vh;
+}
+
+#netws {
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    text-align: center;
+    /* height: 45vh; */
+}
+
 /*-------------------*/
 /* ------CLASS------ */
 /*-------------------*/
 
-.card {
+.links-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.home img {
+    width: 80%;
+}
+
+.card-quali {
     width: 30%;
     display: flex;
     justify-content: center;
@@ -123,16 +161,124 @@ section {
     margin: 1%;
 }
 
-.card img {
+.card-quali img {
     background-color: var(--primary);
     border-radius: 10%;
     border: 1px solid var(--black);
     margin: 10px;
 }
 
-.title-back {
+/* .title-back {
+    width: 30%;
+    height: 1rem;
+    margin-right: auto;
     background-color: var(--primary);
-    /* -- FAZER -- */
+    position: relative;
+    top: -0.5rem;
+} */
+
+.about {
+    display: flex;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), var(--background)), url(./img/background_about.png);
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.about img {
+    border-radius: 50%;
+    border: 1px solid var(--black);
+    margin: 10px;
+    /* height: 50%; */
+}
+
+.txt-about {
+    text-align: left;
+    padding-left: 10%;
+}
+
+.catalog {
+    height: 100%;
+    background-color: var(--alt-secondary);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-catalog {
+    width: 40%;
+}
+
+.right-catalog {
+    height: 90%;
+    width: 60%;
+    background-color: var(--secondary);
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.btn-catalog {
+    color: var(--white);
+    text-decoration: none;
+    /* margin-top: 20px; */
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--primary);
+}
+
+.adress {
+    height: 100%;
+    background-color: var(--accent);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-adress {
+    width: 40%;
+    /* background-color: var(--background); */
+}
+
+.right-adress {
+    height: 90%;
+    width: 60%;
+    background-color: var(--background);
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.adress iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.netws {
+    height: 100%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.card-netws {
+    background-color: var(--test);
+    border-radius: 10px;
+    height: 100%;
+}
+
+.card-netws img {
+    width: 50%;
+}
+
+.btn-netws {
+    color: var(--white);
+    text-decoration: none;
+    /* margin-top: 20px; */
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--primary);
 }
 
 /*-------------------*/
@@ -174,21 +320,11 @@ section {
     justify-content: flex-end;
 }
 
-/* ------OTHERS----- */
-
-.links-container {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
 /*------------------*/
 /* -----MOBILE----- */
 /*------------------*/
 
-@media(max-width: 800px){
+/* @media(max-width: 800px){
     nav a{
         visibility: hidden;
     }
@@ -199,4 +335,4 @@ section {
     padding-top: 50px;
     padding-bottom: 50px;
     }
-}
+} */
