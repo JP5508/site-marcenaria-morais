@@ -134,7 +134,7 @@ section {
     justify-content: center;
     align-items: center; */
     text-align: center;
-    /* height: 45vh; */
+    height: 50vh;
 }
 
 /*-------------------*/
@@ -263,22 +263,27 @@ section {
 
 
 .card-netws {
-    background-color: var(--test);
+    /* #DE2D7
+    #8F3DB1 */
+    background: linear-gradient(to bottom, #DE2D78, #8F3DB1);
+    border: 1px solid var(--white);
     border-radius: 10px;
     height: 100%;
+    width: 20%;
 }
 
 .card-netws img {
     width: 50%;
+    padding: 10px;
 }
 
 .btn-netws {
-    color: var(--white);
+    color: var(--black);
     text-decoration: none;
-    /* margin-top: 20px; */
+    margin-top: auto;
     padding: 10px;
     border-radius: 10px;
-    background-color: var(--primary);
+    background-color: var(--white);
 }
 
 /*-------------------*/
