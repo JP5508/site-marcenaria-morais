@@ -16,7 +16,7 @@ html {
     /* font-size: clamp(0.5rem, 2vw, 2rem); */
     font-family: Arial, Helvetica, sans-serif;
     scroll-behavior: smooth; /* Faz a rolagem das âncoras ser suave */
-    overflow-x: hidden;
+    overflow-x: hidden; /* Bloqueia overflow horizontal */
 }
 
 body {
@@ -27,7 +27,7 @@ body {
     "navbar"
     "main"
     "footer";
-    overflow-x: hidden;
+    overflow-x: hidden; /* Bloqueia overflow horizontal */
 }
 
 nav {
