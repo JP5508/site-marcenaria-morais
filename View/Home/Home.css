@@ -6,6 +6,7 @@
 /*------------------*/
 /* ------BODY------ */
 /*------------------*/
+
 * {
     margin: 0;
     padding: 0;
@@ -16,7 +17,8 @@ html {
     /* font-size: clamp(0.5rem, 2vw, 2rem); */
     font-family: Arial, Helvetica, sans-serif;
     scroll-behavior: smooth; /* Faz a rolagem das âncoras ser suave */
-    overflow-x: hidden; /* Bloqueia overflow horizontal */
+    overflow-x: clip; /* Bloqueia overflow horizontal */
+    overscroll-behavior-x: none;
 }
 
 body {
@@ -27,7 +29,8 @@ body {
     "navbar"
     "main"
     "footer";
-    overflow-x: hidden; /* Bloqueia overflow horizontal */
+    overflow-x: clip; /* Bloqueia overflow horizontal */
+    overscroll-behavior-x: none;
 }
 
 nav {
@@ -98,7 +101,7 @@ section {
     padding-right: 10%;
     padding-top: 50px;
     padding-bottom: 50px;
-    scroll-margin-top: 10vh; /* Evita que a navbar (10vh) esconda o topo das seções */
+    scroll-margin-top: 10vh;
 }
 
 /*----------------*/
