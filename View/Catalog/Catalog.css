@@ -61,8 +61,8 @@ main {
     grid-area: main;
     color: var(--white);
     background-color: var(--background);
-    background-image: url(./img/background_pattern.png);
-    background-size: 10vh;
+    /* background-image: url(./img/background_pattern.png);
+    background-size: 10vh; */
 }
 
 footer {
@@ -88,29 +88,71 @@ footer a:hover {
 
 section {
     width: 80%;
-    padding-left: 10%;
+    padding: 50px 10% 50px 10%;
+    /* padding-left: 10%;
     padding-right: 10%;
     padding-top: 50px;
-    padding-bottom: 50px;
+    padding-bottom: 50px; */
     scroll-margin-top: 10vh; /* Evita que a navbar (10vh) esconda o topo das seções */
+}
+
+form {
+    width: 50vh;
 }
 
 /*----------------*/
 /* ------ID------ */
 /*----------------*/
 
-#filters {
-    display: flex;
-    justify-content: center;
-    align-items: stretch; /* cards terão a mesma altura */
-    flex-wrap: wrap;
-}
-
 /*-------------------*/
 /* ------CLASS------ */
 /*-------------------*/
 
+.search {
+    width: 100%;
+    background-color: var(--white);
+    /* margin: 10px; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+}
 
+.search input {
+    margin: 0;
+    /* width: 80%; */
+    height: 100%;
+    border: none;
+}
+
+.search img {
+    /* width: 20%; */
+    height: 100%;
+    background-color: var(--background);
+    border-radius: 10px;
+}
+
+/* .search button {
+    width: 20%;
+    height: 100%;
+    text-indent: -999px;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    border: 1px solid transparent;
+    border-radius: inherit;
+    background-color: var(--background);
+    background-image: url(./img/icon_search.png);
+    background-size: cover;
+    } */
+
+.size {
+    width: 100%;
+}
+
+.category {
+    width: 100%;
+}
 
 /*-------------------*/
 /* -TEXT-FORMATTING- */
@@ -155,6 +197,78 @@ a {
 /* --PLACEHOLDERS-- */
 /*------------------*/
 
+.category ul {
+    padding: 0;
+    margin: 0;
+    clear: both;
+}
+
+.category li{
+    list-style-type: none;
+    list-style-position: outside;
+    padding: 10px;
+    float: left;
+}
+
+.category li input[type="checkbox"]:not(:checked),
+    li input[type="checkbox"]:checked {
+    position: absolute;
+    left: -9999%;
+}
+
+.category li input[type="checkbox"] + label {
+    display: inline-block;
+    border-radius: 5px;
+    padding: 5%;
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--white);
+    background-color: #3D3D3D;
+    margin-bottom: 10px;
+}
+
+.category li input[type="checkbox"]:checked + label {
+    color: var(--white);
+    background-color: var(--accent);
+}
+
+.size input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: var(--background);
+    border: 1px solid var(--white);
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+    margin: 10px;
+}
+
+.size input[type="checkbox"]:checked {
+    background-color: var(--white);
+    border: 1px solid var(--white);
+}
+
+/* Add a check mark when checked */
+.size input[type="checkbox"]:checked::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    width: 6px;
+    height: 12px;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+    border-color: var(--background);
+    border-style: solid;
+}
+
+/* label {
+    margin-left: 10px;
+    font-size: 16px;
+} */
 /*------------------*/
 /* -----MOBILE----- */
 /*------------------*/
