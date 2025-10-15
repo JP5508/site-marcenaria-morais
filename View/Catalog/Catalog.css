@@ -193,21 +193,41 @@ form {
     gap: 1%;
 }
 
-.category input[type="checkbox"]{
-    appearance: none;
-    -webkit-appearance: none;
-    width: 50px;
-    height: 20px;
-    background-color: var(--accent);
-    border-radius: 5px;
+.category label {
+    position: relative;
     cursor: pointer;
 }
 
-.category label {
+.category input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100px; /* tamanho da "caixa" */
+    height: 40px;
+    background-color: var(--accent);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
+/* O texto dentro da caixa */
+.category label span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: 600;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Quando estiver marcado */
 .category input[type="checkbox"]:checked {
     background-color: var(--alt-secondary);
+}
+
+/* Muda a cor do texto quando marcado */
+.category input[type="checkbox"]:checked + span {
     color: var(--black);
 }
 
