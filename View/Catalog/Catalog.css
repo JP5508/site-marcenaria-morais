@@ -15,8 +15,10 @@ html {
     /* font-size: 12pt; */
     /* font-size: clamp(0.5rem, 2vw, 2rem); */
     font-family: Arial, Helvetica, sans-serif;
-    scroll-behavior: smooth; /* Faz a rolagem das âncoras ser suave */
-    overflow-x: clip; /* Bloqueia overflow horizontal */
+    scroll-behavior: smooth;
+    /* Faz a rolagem das âncoras ser suave */
+    overflow-x: clip;
+    /* Bloqueia overflow horizontal */
     overscroll-behavior-x: none;
 }
 
@@ -25,10 +27,11 @@ body {
     grid-template-columns: 100%;
     grid-template-rows: auto 1fr auto;
     grid-template-areas:
-    "navbar"
-    "main"
-    "footer";
-    overflow-x: clip; /* Bloqueia overflow horizontal */
+        "navbar"
+        "main"
+        "footer";
+    overflow-x: clip;
+    /* Bloqueia overflow horizontal */
     overscroll-behavior-x: none;
 }
 
@@ -93,7 +96,8 @@ section {
     padding-right: 10%;
     padding-top: 50px;
     padding-bottom: 50px; */
-    scroll-margin-top: 10vh; /* Evita que a navbar (10vh) esconda o topo das seções */
+    scroll-margin-top: 10vh;
+    /* Evita que a navbar (10vh) esconda o topo das seções */
 }
 
 form {
@@ -103,6 +107,34 @@ form {
 /*----------------*/
 /* ------ID------ */
 /*----------------*/
+
+#filters p {
+    font-size: clamp(0.5rem, 2vw, calc(1vw + 0.3rem));
+    font-weight: bold;
+    margin-top: 4%;
+    margin-bottom: 2%;
+}
+
+#pages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#popup {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    /* background-color: var(--test); */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--black);
+    z-index: 5;
+}
 
 /*-------------------*/
 /* ------CLASS------ */
@@ -130,7 +162,8 @@ form {
     flex: 1;
 }
 
-.search input::placeholder, span {
+.search input::placeholder,
+span {
     color: var(--background);
 }
 
@@ -151,7 +184,7 @@ form {
     gap: 1%;
 }
 
-.size input[type="checkbox"]{
+.size input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;
     width: 30px;
@@ -201,34 +234,184 @@ form {
 .category input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;
-    width: 100px; /* tamanho da "caixa" */
+    width: 80px;
     height: 40px;
     background-color: var(--accent);
     border-radius: 5px;
     cursor: pointer;
-    transition: all 0.2s ease;
 }
 
-/* O texto dentro da caixa */
 .category label span {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
-    font-weight: 600;
+    color: var(--white);
+    font-weight: bold;
     pointer-events: none;
     user-select: none;
 }
 
-/* Quando estiver marcado */
 .category input[type="checkbox"]:checked {
     background-color: var(--alt-secondary);
 }
 
-/* Muda a cor do texto quando marcado */
-.category input[type="checkbox"]:checked + span {
+.category input[type="checkbox"]:checked+span {
     color: var(--black);
+}
+
+.catalog {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 5%;
+}
+
+.card {
+    position: relative;
+    width: 20%;
+    height: 100%;
+    /* background: url(./img/img_test.jpg) no-repeat center;
+    background-size: 100%; */
+    /* background-color: var(--test); */
+}
+
+/* .card-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.card-txt {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    background-color: var(--primary);
+} */
+
+.card-img {
+    position: relative;
+    /* top: 0;
+    left: 0; */
+    width: 100%;
+    height: 100%;
+    /* background: url('./img/cat_armario.png') center/cover; */
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.card-txt {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: var(--primary);
+    color: var(--white);
+    z-index: 2;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.card h5 {
+    font-size: clamp(0.5rem, 2vw, calc(1vw + 0.3rem));
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.car p {
+    font-size: clamp(0.1rem, 2vw, calc(1vw + 0.1rem));
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.card a {
+    font-size: clamp(0.1rem, 2vw, calc(1vw + 0.1rem));
+    margin-top: 1%;
+    margin-bottom: 1%;
+    color: var(--alt-secondary);
+}
+
+.pages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.pages button {
+    font-size: clamp(0.5rem, 2vw, calc(1vw + 0.3rem));
+    color: var(--white);
+    padding: 5%;
+    background: none;
+    border: none;
+    /* border: solid 1px var(--white); */
+    background-color: #3D3D3D;
+}
+
+.btn-before {
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.btn-number {
+    border: 1px solid var(--white);
+}
+
+.btn-after {
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.popup {
+    background-color: var(--alt-secondary);
+    width: 50%;
+    height: max-content;
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    margin-top: 100px; /* tem q arrumar isso depois */
+    /* gap: 1%; */
+}
+
+.popup button {
+    align-self: flex-end;
+    justify-self: flex-end;
+    background: none;
+    border: none;
+    margin-right: 0;
+}
+
+.popup-columns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-left {
+    width: 50%;
+    height: 100%;
+    display: flex;
+}
+
+.popup-left img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.popup-right {
+    width: 50%;
+    align-self: flex-start;
+    padding: 1%;
+}
+
+.popup-right span {
+    color: var(--white);
+    background-color: var(--primary);
+    padding: 1%;
+    border-radius: 5px;
 }
 
 /*-------------------*/
@@ -247,7 +430,7 @@ h2 {
 
 h3 {
     /* font-size: clamp(2rem, 5vw, 3rem); */
-    font-size: clamp(2rem, 5vw,  calc(1vw + 2rem));
+    font-size: clamp(2rem, 5vw, calc(1vw + 2rem));
 }
 
 h4 {
@@ -278,11 +461,10 @@ a {
 /* -----MOBILE----- */
 /*------------------*/
 
-@media(max-width: 800px){
-    form {
+@media(max-width: 800px) {
+    /* form {
         visibility: hidden;
-    }
+    } */
 }
 
-@media(min-width: 800px) {
-}
+@media(min-width: 800px) {}
