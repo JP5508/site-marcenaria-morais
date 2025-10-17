@@ -85,7 +85,7 @@
             <div class="catalog">
 
                 <!-- CARD -->
-                <div class="card">
+                <div class="card" onclick="showPopup()">
                     <img class="card-img" src="./img/img_test.jpg">
                     <!-- <div class="card-img"></div> -->
                     <div class="card-txt">
@@ -114,10 +114,11 @@
         <!-- POPUP -->
         <section id="popup">
             <div class="popup">
-                <button><img src="./img/icon_dark_close.png"></button>
+                <button onclick="hidePopup()"><img src="./img/icon_dark_close.png"></button>
 
                 <div class="popup-columns">
                     <div class="popup-left">
+                        <img src="./img/img_test.jpg">
                         <img src="./img/cat_cama.png">
                         <img src="./img/cat_bancada-cozinha.png">
                         <img src="./img/cat_armario.png">
@@ -142,6 +143,7 @@
     <footer>
         <p>Copyright ©2025 <a href="../Terms/terms.html">Termos de Serviço</a></p>
     </footer>
+    <script src="../../Controller/Script.js"></script>
 </body>
 
 </html>
