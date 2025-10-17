@@ -17,7 +17,7 @@
     [ok] arrumar a posição do conteúdo do footer
     [ok] imagem para localização (ou funcionalidade ja, se possivel)
 
-[fzd] NOVO DESIGN
+[ok] NOVO DESIGN
     -continuação das alterações no endereço
     [ok] MAPS aplicado
     [ok] DIV CATALOGO
@@ -28,11 +28,15 @@
     -organizar as divs do HTML
 
 [ok] REPONSÍVIDADE MOBILE
-[..] ALTERAR TEXTOS PLACE-HOLDER
+[ok] ALTERAR TEXTOS PLACE-HOLDER
 [ok] REVER A PALETA
 
-[..] ESTUDAR O MVC
-[..] ESTUDAR O COMPOSER
+10.13
+[ok] Midias
+[ok] Quem somos
+[ok] ordenar: sobre - catalogo
+[..] link do zap
+[..] orçamento
 ----------COMANDOS----------
 
 git rm -r --cached IGNORE
