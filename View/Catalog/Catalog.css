@@ -122,7 +122,7 @@ form {
 }
 
 #popup {
-    visibility: hidden;
+    /* visibility: hidden; */
     width: 100vw;
     height: 100vh;
     position: absolute;
@@ -264,12 +264,14 @@ span {
 
 .catalog {
     display: flex;
-    align-items: center;
-    justify-content: left;
-    gap: 5%;
+    align-items: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* gap: 5%; */
 }
 
 .card {
+    margin: 1%;
     position: relative;
     width: 20%;
     height: 100%;
@@ -332,7 +334,7 @@ span {
     margin-bottom: 5%;
 }
 
-.car p {
+.card p {
     font-size: clamp(0.1rem, 2vw, calc(1vw + 0.1rem));
     margin-top: 1%;
     margin-bottom: 1%;
