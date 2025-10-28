@@ -108,7 +108,7 @@ $result = $conn->query($sql);
                 </div>
 
                 <!-- POPUP -->
-                <!-- <section id="popup-<?php echo $row['Cat_id']; ?>" style="visibility:hidden;">
+                <section class="popup-content" id="popup-<?php echo $row['Cat_id']; ?>" style="display:none;">
                             <div class="popup">
                             <button onclick="hidePopup('<?php echo $row['Cat_id']; ?>')"><img src="./img/icon_dark_close.png"></button>
                                 <div class="popup-columns">
@@ -129,7 +129,7 @@ $result = $conn->query($sql);
                                     </div>
                                 </div>
                             </div>
-                        </section> -->
+                        </section>
                 <?php
                     }
                 } else {

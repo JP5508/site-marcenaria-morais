@@ -1,9 +1,9 @@
 function showPopup(id) {
-    document.getElementById('popup-' + id).style.visibility = 'visible';
+    document.getElementById('popup-' + id).style.display = 'flex';
 }
 
 function hidePopup(id) {
-    document.getElementById('popup-' + id).style.visibility = 'hidden';
+    document.getElementById('popup-' + id).style.display = 'none';
 }
 
 // PAGINAÇÃO AUTOMÁTICA
