@@ -45,46 +45,52 @@ $result = $conn->query($sql);
             <form action="">
 
                 <!-- SEARCH -->
-                <div class="search">
-                    <input type="search" id="name" name="name" placeholder="pesquisar">
-                    <!-- <span class="material-symbols-outlined">search</span> -->
-                    <img src="./img/icon_white_search.png">
+                <div class="filters-div">
+                    <div class="search">
+                        <input type="search" id="name" name="name" placeholder="pesquisar">
+                        <!-- <span class="material-symbols-outlined">search</span> -->
+                        <img src="./img/icon_white_search.png">
+                    </div>
                 </div>
 
                 <!-- SIZE -->
-                <p>Tamanhos:</p>
+                <div class="filters-div">
+                    <p>Tamanhos:</p>
 
-                <div class="size">
-                    <input type="checkbox" name="grande" value="grande">
-                    <label for="grande">Grande</label>
+                    <div class="size">
+                        <input type="checkbox" name="grande" value="grande">
+                        <label for="grande">Grande</label>
 
-                    <input type="checkbox" name="medio" value="medio">
-                    <label for="medio">Médio</label>
+                        <input type="checkbox" name="medio" value="medio">
+                        <label for="medio">Médio</label>
 
-                    <input type="checkbox" name="pequeno" value="pequeno">
-                    <label for="pequeno">Pequeno</label>
+                        <input type="checkbox" name="pequeno" value="pequeno">
+                        <label for="pequeno">Pequeno</label>
+                    </div>
                 </div>
 
                 <!-- CATEGORY -->
-                <p>Categorias:</p>
+                <div class="filters-div"    >
+                    <p>Categorias:</p>
 
-                <div class="category">
-                    <label>
-                        <input type="checkbox" id="check_1" name="check_1" value="Cadeira">
-                        <span>Cadeira</span>
-                    </label>
-                    <label>
-                        <input type="checkbox" id="check_2" name="check_2" value="Mesa">
-                        <span>Mesa</span>
-                    </label>
-                    <label>
-                        <input type="checkbox" id="check_3" name="check_3" value="Cozinha">
-                        <span>Cozinha</span>
-                    </label>
-                    <label>
-                        <input type="checkbox" id="check_4" name="check_4" value="Quarto">
-                        <span>Quarto</span>
-                    </label>
+                    <div class="category">
+                        <label>
+                            <input type="checkbox" id="check_1" name="check_1" value="Cadeira">
+                            <span>Cadeira</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" id="check_2" name="check_2" value="Mesa">
+                            <span>Mesa</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" id="check_3" name="check_3" value="Cozinha">
+                            <span>Cozinha</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" id="check_4" name="check_4" value="Quarto">
+                            <span>Quarto</span>
+                        </label>
+                    </div>
                 </div>
             </form>
         </section>
@@ -109,27 +115,28 @@ $result = $conn->query($sql);
 
                 <!-- POPUP -->
                 <section class="popup-content" id="popup-<?php echo $row['Cat_id']; ?>" style="display:none;">
-                            <div class="popup">
-                            <button onclick="hidePopup('<?php echo $row['Cat_id']; ?>')"><img src="./img/icon_dark_close.png"></button>
-                                <div class="popup-columns">
-                                    <div class="popup-left">
-                                        <img src="./img/<?php echo $row['Cat_img1']; ?>">
-                                        <img src="./img/<?php echo $row['Cat_img2']; ?>">
-                                        <img src="./img/<?php echo $row['Cat_img3']; ?>">
-                                        <img src="./img/<?php echo $row['Cat_img4']; ?>">
-                                    </div>
-                                    <div class="popup-right">
-                                        <h5><?php echo $row['Cat_nome']; ?></h5>
-                                        <p><?php echo $row['Cat_desc']; ?></p>
-                                        <br>
-                                        <p>Tamanho</p>
-                                        <span>Médio</span>
-                                        <p>Categorias</p>
-                                        <span><?php echo $row['Cat_cate']; ?></span>
-                                    </div>
-                                </div>
+                    <div class="popup">
+                        <button onclick="hidePopup('<?php echo $row['Cat_id']; ?>')"><img
+                                src="./img/icon_dark_close.png"></button>
+                        <div class="popup-columns">
+                            <div class="popup-left">
+                                <img src="./img/<?php echo $row['Cat_img1']; ?>">
+                                <img src="./img/<?php echo $row['Cat_img2']; ?>">
+                                <img src="./img/<?php echo $row['Cat_img3']; ?>">
+                                <img src="./img/<?php echo $row['Cat_img4']; ?>">
                             </div>
-                        </section>
+                            <div class="popup-right">
+                                <h5><?php echo $row['Cat_nome']; ?></h5>
+                                <p><?php echo $row['Cat_desc']; ?></p>
+                                <br>
+                                <p>Tamanho</p>
+                                <span>Médio</span>
+                                <p>Categorias</p>
+                                <span><?php echo $row['Cat_cate']; ?></span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
                 <?php
                     }
                 } else {

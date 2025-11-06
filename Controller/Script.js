@@ -1,9 +1,12 @@
+//POPUP
 function showPopup(id) {
     document.getElementById('popup-' + id).style.display = 'flex';
+    document.body.classList.add("no-scroll");
 }
 
 function hidePopup(id) {
     document.getElementById('popup-' + id).style.display = 'none';
+    document.body.classList.remove("no-scrol    l");
 }
 
 // PAGINAÇÃO AUTOMÁTICA
