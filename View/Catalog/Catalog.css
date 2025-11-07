@@ -35,10 +35,6 @@ body {
     overscroll-behavior-x: none;
 }
 
-body.no-scroll{
-    overflow: hidden;
-}
-
 nav {
     z-index: 10;
     top: 0;
@@ -165,17 +161,15 @@ form {
 }
 
 .search input {
-    /* width: 80%; */
-    /* height: 100%;
-    border: none; */
+    font-size: 1rem; /* tamanho confortável para digitação */
     color: var(--black);
     outline: none;
     border: none;
     background: transparent;
     flex: 1;
     width: 90%;
-    font-size: 10%;
 }
+
 
 .search input::placeholder,
 span {
@@ -215,6 +209,12 @@ span {
     color: var(--white);
     font-size: clamp(0.5rem, 2vw, calc(1vw + 0.3rem));
     cursor: pointer;
+}
+
+.size label, .category label span {
+    white-space: normal; /* permite quebra de linha */
+    word-wrap: break-word; /* quebra palavras longas */
+    max-width: 100%; /* ajustar para não ultrapassar container */
 }
 
 .size input[type="checkbox"]::after {
@@ -259,6 +259,7 @@ span {
 }
 
 .category label span {
+    font-size: 100%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -278,18 +279,22 @@ span {
 }
 
 .catalog {
-    display: flex;
+    /* display: flex;
     align-items: stretch;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1em;
     /* gap: 5%; */
 }
 
 .card {
     margin: 1%;
     position: relative;
-    width: 20%;
-    height: 20vh;
+    width: 100%; /* ocupa toda a coluna ou espaço disponível */
+    height: auto; /* altura automática conforme conteúdo */
+    aspect-ratio: auto; /* remove restrição fixa para evitar achatamento */
     /* background: url(./img/img_test.jpg) no-repeat center;
     background-size: 100%; */
     /* background-color: var(--test); */
@@ -338,10 +343,9 @@ span {
     display: none;
 }
 
-.card:hover {
-    .card-txt p, .card-txt a {
+.card:hover .card-txt p,
+.card:hover .card-txt a {
     display: block;
-    }
 }
 
 .card h5 {
@@ -371,18 +375,43 @@ span {
     border-radius: 10px;
 }
 
+/* .pages button {
+    font-size: clamp(0.5rem, 2vw, calc(1vw + 0.3rem));
+    color: var(--white);
+    padding: 5%;
+    background: none;
+    border: none;
+    background-color: #3D3D3D;
+}
+
+.pages button:hover {
+    border: solid 1px var(--white);
+} */
+
 .pages button {
     font-size: clamp(0.5rem, 2vw, calc(1vw + 0.3rem));
     color: var(--white);
     padding: 5%;
     background: none;
     border: none;
-    /* border: solid 1px var(--white); */
     background-color: #3D3D3D;
+    cursor: pointer;
+    transition: border 0.3s ease;
 }
 
-.pages button:hover {
+.pages button:hover:not(:disabled) {
     border: solid 1px var(--white);
+}
+
+.pages button.active {
+    border: solid 1px var(--white);
+    font-weight: bold;
+}
+
+.pages button:disabled {
+    background-color: #1A1A1A;
+    cursor: default;
+    opacity: 0.5;
 }
 
 .btn-before {
@@ -419,7 +448,9 @@ span {
 .popup {
     background-color: var(--alt-secondary);
     width: 50%;
-    height: max-content;
+    /* height: max-content; */
+    max-height: 80vh; /* Limita altura */
+    overflow-y: auto; /* Adiciona barra de rolagem se necessário */
     padding: 1%;
     display: flex;
     flex-direction: column;
@@ -490,9 +521,12 @@ span {
 .popup-left img {
     scroll-snap-align: start;
     border-radius: 10px;
-    width: 100%;
+    /* width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; */
+    height: 40vh;
+    width: 100%;
+    object-fit: contain; /* Mantém proporção sem estourar */
     flex-shrink: 0; /* impede de encolher */
 }
 
@@ -502,12 +536,27 @@ span {
     padding: 1%;
 }
 
+.popup-right p {
+    font-size: clamp(0.5rem, 2vw, calc(1vw + 0.3rem));
+    margin-bottom: 1%;
+}
+
 .popup-right span {
+    display: block; /* para quebrar linha */
+    width: max-content;
+    margin-bottom: 1%;
     color: var(--white);
     background-color: var(--primary);
     padding: 1%;
     border-radius: 5px;
 }
+
+/* .popup-right span {
+    color: var(--white);
+    background-color: var(--primary);
+    padding: 1%;
+    border-radius: 5px;
+} */
 
 /*-------------------*/
 /* -TEXT-FORMATTING- */
@@ -558,10 +607,14 @@ a {
 /* -----MOBILE----- */
 /*------------------*/
 
-@media(max-width: 800px) {
-    /* form {
-        visibility: hidden;
-    } */
+@media (max-width: 800px) {
+    .catalog {
+        grid-template-columns: repeat(2, 1fr); /* Fica sempre 2 colunas no mobile */
+    }
+    .card {
+        height: auto;
+        width: 100%;
+    }
 }
 
 @media(min-width: 800px) {}

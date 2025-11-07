@@ -1,12 +1,10 @@
 //POPUP
 function showPopup(id) {
     document.getElementById('popup-' + id).style.display = 'flex';
-    document.body.classList.add("no-scroll");
 }
 
 function hidePopup(id) {
     document.getElementById('popup-' + id).style.display = 'none';
-    document.body.classList.remove("no-scrol    l");
 }
 
 // PAGINAÇÃO AUTOMÁTICA
@@ -123,4 +121,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // -----------------------------
     // Mostra a primeira página ao carregar o site
     mostrarPagina(paginaAtual);
+    btnAntes.disabled = paginaAtual === 1;
+    btnDepois.disabled = paginaAtual === totalPaginas;
 });
