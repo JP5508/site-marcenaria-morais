@@ -240,15 +240,16 @@ span {
     align-items: center;
     justify-content: left;
     flex-wrap: wrap;
-    gap: 1%;
+    gap: 5px;
 }
 
 .category label {
     position: relative;
     cursor: pointer;
+    display: inline-block;
 }
 
-.category input[type="checkbox"] {
+/* .category input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;
     width: 80px;
@@ -259,7 +260,7 @@ span {
 }
 
 .category label span {
-    font-size: 100%;
+    font-size: 80%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -268,6 +269,36 @@ span {
     font-weight: bold;
     pointer-events: none;
     user-select: none;
+} */
+
+.category input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: auto; /* deixa automático para ajustar ao texto */
+    min-width: 150px; /* largura mínima */
+    height: 40px;
+    background-color: var(--accent);
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 0 10px; /* espaçamento interno para o texto */
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.category label span {
+    font-size: clamp(0.5rem, 2vw, calc(1vw + 0.2rem));
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--white);
+    font-weight: bold;
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap; /* evita quebra de linha */
+    max-width: calc(100% - 10px); /* deixa margem para o padding */
 }
 
 .category input[type="checkbox"]:checked {
@@ -614,6 +645,12 @@ a {
     .card {
         height: auto;
         width: 100%;
+    }
+    form {
+    width: 100%;
+    }
+    .category input[type="checkbox"] {
+    min-width: 100px; /* largura mínima */
     }
 }
 

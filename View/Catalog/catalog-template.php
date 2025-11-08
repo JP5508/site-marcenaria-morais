@@ -36,14 +36,21 @@
                     <p>Tamanhos:</p>
 
                     <div class="size">
-                        <input type="checkbox" name="grande" value="grande">
-                        <label for="grande">Grande</label>
+                        <div>
+                            <input type="checkbox" name="grande" value="grande">
+                            <label for="grande">Grande</label>
+                        </div>
 
-                        <input type="checkbox" name="medio" value="medio">
-                        <label for="medio">Médio</label>
+                        <div>
+                            <input type="checkbox" name="medio" value="medio">
+                            <label for="medio">Médio</label>
+                        </div>
 
-                        <input type="checkbox" name="pequeno" value="pequeno">
-                        <label for="pequeno">Pequeno</label>
+                        <div>
+                            <input type="checkbox" name="pequeno" value="pequeno">
+                            <label for="pequeno">Pequeno</label>
+                        </div>
+
                     </div>
                 </div>
 

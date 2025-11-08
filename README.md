@@ -26,7 +26,7 @@ Ano letivo: 2025
 O sistema é composto por duas partes integradas:
 
 ### 🌐 Site de Divulgação
-Um site responsivo, criado com **HTML5**, **CSS3** e **Bootstrap**, com as seguintes funcionalidades:
+Um site responsivo, criado com **HTML5**, **CSS3** e **JAVA SCRIPT**, com as seguintes funcionalidades:
 - Apresentação da marcenaria
 - Página de contato
 - Catálogo de produtos (integrado ao sistema de gestão)
