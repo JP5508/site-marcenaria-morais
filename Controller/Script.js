@@ -124,3 +124,16 @@ document.addEventListener("DOMContentLoaded", function () {
     btnAntes.disabled = paginaAtual === 1;
     btnDepois.disabled = paginaAtual === totalPaginas;
 });
+
+// Filtros dinâmicos sem botão
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.querySelector("form");
+    const checkboxes = form.querySelectorAll("input[type='checkbox']");
+    
+    // Quando marcar/desmarcar qualquer checkbox, submit o form
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener("change", function() {
+            form.submit();
+        });
+    });
+});

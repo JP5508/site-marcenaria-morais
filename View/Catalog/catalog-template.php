@@ -20,14 +20,15 @@
     <main>
         <!-- FILTERS -->
         <section id="filters">
-            <form action="">
+            <form method="get" action="">
 
                 <!-- SEARCH -->
                 <div class="filters-div">
                     <div class="search">
-                        <input type="search" id="name" name="name" placeholder="pesquisar">
-                        <!-- <span class="material-symbols-outlined">search</span> -->
-                        <img src="./img/icon_white_search.png">
+                        <input type="search" id="name" name="name" placeholder="pesquisar"
+                            value="<?php echo isset($_GET['name']) ? htmlspecialchars($_GET['name']) : ''; ?>">
+                        <!-- <img src="./img/icon_white_search.png"> -->
+                        <button type="submit"><img src="./img/icon_white_search.png"></button>
                     </div>
                 </div>
 
@@ -37,20 +38,22 @@
 
                     <div class="size">
                         <div>
-                            <input type="checkbox" name="grande" value="grande">
+                            <input type="checkbox" name="tamanho[]" id="grande" value="Grande"
+                                <?php if(isset($_GET['tamanho']) && in_array('Grande', $_GET['tamanho'])) echo "checked"; ?>>
                             <label for="grande">Grande</label>
                         </div>
 
                         <div>
-                            <input type="checkbox" name="medio" value="medio">
+                            <input type="checkbox" name="tamanho[]" id="medio" value="Médio"
+                                <?php if(isset($_GET['tamanho']) && in_array('Médio', $_GET['tamanho'])) echo "checked"; ?>>
                             <label for="medio">Médio</label>
                         </div>
 
                         <div>
-                            <input type="checkbox" name="pequeno" value="pequeno">
+                            <input type="checkbox" name="tamanho[]" id="pequeno" value="Pequeno"
+                                <?php if(isset($_GET['tamanho']) && in_array('Pequeno', $_GET['tamanho'])) echo "checked"; ?>>
                             <label for="pequeno">Pequeno</label>
                         </div>
-
                     </div>
                 </div>
 
@@ -70,6 +73,8 @@
                         <?php endforeach; ?>
                     </div>
                 </div>
+
+                <button type="submit" style="display: none;">Filtrar</button>
 
             </form>
         </section>
@@ -107,7 +112,7 @@
                                 <h5><?php echo htmlspecialchars($item['Cat_nome']); ?></h5>
                                 <p><?php echo htmlspecialchars($item['Cat_desc']); ?></p><br>
                                 <p>Tamanho</p>
-                                <span>Médio</span>
+                                <span><?php echo htmlspecialchars($item['Cat_tamanho']); ?></span>
                                 <p>Categorias</p>
                                 <span><?php echo htmlspecialchars($item['Cat_cate']); ?></span>
                             </div>
