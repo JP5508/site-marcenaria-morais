@@ -1,139 +1,175 @@
 //POPUP
 function showPopup(id) {
-    document.getElementById('popup-' + id).style.display = 'flex';
+    const popup = document.getElementById('popup-' + id);
+    popup.style.display = 'flex';
+    // Inicializa o carrossel quando o popup abre
+    setTimeout(() => initCarousel(id), 50);
 }
 
 function hidePopup(id) {
     document.getElementById('popup-' + id).style.display = 'none';
 }
 
+// Filtros dinâmicos sem botão
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.querySelector("form");
+    const checkboxes = form.querySelectorAll("input[type='checkbox']");
+    
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener("change", function() {
+            form.submit();
+        });
+    });
+});
+
+// Navegação por teclado para o carrossel
+document.addEventListener('keydown', function(e) {
+    const openPopup = document.querySelector('.popup-content[style*="display: flex"]');
+    if (!openPopup) return;
+    
+    const popupId = openPopup.id.replace('popup-', '');
+    
+    if (e.key === 'ArrowLeft') {
+        moveCarousel(popupId, -1);
+    } else if (e.key === 'ArrowRight') {
+        moveCarousel(popupId, 1);
+    } else if (e.key === 'Escape') {
+        hidePopup(popupId);
+    }
+});
+
+// CARROSSEL
+function initCarousel(popupId) {
+    const container = document.querySelector(`#popup-${popupId} .carousel-container`);
+    if (!container) return;
+    
+    const track = container.querySelector('.carousel-track');
+    const prevBtn = container.querySelector('.carousel-prev');
+    const nextBtn = container.querySelector('.carousel-next');
+    
+    // Garante que estamos no primeiro slide
+    track.scrollLeft = 0;
+    
+    // Atualiza estado inicial dos botões
+    updateCarouselButtons(popupId);
+}
+
+function moveCarousel(popupId, direction) {
+    const container = document.querySelector(`#popup-${popupId} .carousel-container`);
+    if (!container) return;
+    
+    const track = container.querySelector('.carousel-track');
+    const slides = container.querySelectorAll('.carousel-slide');
+    
+    if (!slides.length) return;
+    
+    const slideWidth = track.offsetWidth;
+    const currentPosition = track.scrollLeft;
+    const maxScroll = track.scrollWidth - track.offsetWidth;
+    
+    let targetPosition;
+    
+    if (direction === 1) {
+        // Próximo
+        targetPosition = Math.min(currentPosition + slideWidth, maxScroll);
+    } else {
+        // Anterior
+        targetPosition = Math.max(currentPosition - slideWidth, 0);
+    }
+    
+    track.scrollTo({
+        left: targetPosition,
+        behavior: 'smooth'
+    });
+    
+    // Atualiza botões após a animação
+    setTimeout(() => updateCarouselButtons(popupId), 300);
+}
+
+function updateCarouselButtons(popupId) {
+    const container = document.querySelector(`#popup-${popupId} .carousel-container`);
+    if (!container) return;
+    
+    const track = container.querySelector('.carousel-track');
+    const prevBtn = container.querySelector('.carousel-prev');
+    const nextBtn = container.querySelector('.carousel-next');
+    
+    const currentPosition = track.scrollLeft;
+    const maxScroll = track.scrollWidth - track.offsetWidth;
+    
+    // Adiciona uma tolerância para evitar problemas de arredondamento
+    const tolerance = 1;
+    
+    prevBtn.disabled = currentPosition <= tolerance;
+    nextBtn.disabled = currentPosition >= maxScroll - tolerance;
+}
+
 // PAGINAÇÃO AUTOMÁTICA
-// Espera o conteúdo da página carregar completamente
 document.addEventListener("DOMContentLoaded", function () {
-
-    // Seleciona todos os elementos com a classe "card" (os itens do catálogo)
     const cards = document.querySelectorAll(".card");
-
-    // Seleciona a div onde os botões de página vão aparecer
     const pagesContainer = document.querySelector(".pages");
-
-    // Quantos cards aparecem por página
     const itensPorPagina = 24;
-
-    // Página que começa sendo exibida
     let paginaAtual = 1;
-
-    // Calcula o total de páginas com base na quantidade de cards existentes
     const totalPaginas = Math.ceil(cards.length / itensPorPagina);
 
-    // -----------------------------
-    // FUNÇÃO: mostrarPagina()
-    // Exibe apenas os cards da página selecionada
-    // -----------------------------
     function mostrarPagina(pagina) {
-        // Calcula o índice inicial e final da lista de cards
         const inicio = (pagina - 1) * itensPorPagina;
         const fim = inicio + itensPorPagina;
 
-        // Percorre todos os cards
         cards.forEach((card, index) => {
-            // Se o índice do card estiver dentro do intervalo da página atual → mostra
             if (index >= inicio && index < fim) {
                 card.style.display = "block";
             } else {
-                // Senão → esconde
                 card.style.display = "none";
             }
         });
 
-        // Atualiza os botões (para destacar o número da página atual)
         atualizarBotoes();
     }
 
-    // -----------------------------
-    // FUNÇÃO: atualizarBotoes()
-    // Cria/atualiza os botões de paginação conforme o total de páginas
-    // -----------------------------
     function atualizarBotoes() {
-        // Limpa os botões antigos antes de recriar
         pagesContainer.innerHTML = "";
 
-        // ---------- BOTÃO "ANTERIOR" ----------
+        // Botão Anterior
         const btnAntes = document.createElement("button");
         btnAntes.textContent = "Anterior";
         btnAntes.classList.add("btn-before");
-
-        // Desativa se estiver na primeira página
         btnAntes.disabled = paginaAtual === 1;
-
-        // Define o que acontece ao clicar: vai para a página anterior
         btnAntes.onclick = () => {
             if (paginaAtual > 1) {
                 paginaAtual--;
                 mostrarPagina(paginaAtual);
             }
         };
-
-        // Adiciona o botão na tela
         pagesContainer.appendChild(btnAntes);
 
-        // ---------- BOTÕES NUMÉRICOS ----------
+        // Botões Numéricos
         for (let i = 1; i <= totalPaginas; i++) {
             const btn = document.createElement("button");
             btn.textContent = i;
             btn.classList.add("btn-number");
-
-            // Se for a página atual, adiciona uma classe "active" pra mudar o estilo
             if (i === paginaAtual) btn.classList.add("active");
-
-            // Quando clicar num número → muda a página
             btn.onclick = () => {
                 paginaAtual = i;
                 mostrarPagina(paginaAtual);
             };
-
-            // Adiciona o botão numérico na tela
             pagesContainer.appendChild(btn);
         }
 
-        // ---------- BOTÃO "PRÓXIMO" ----------
+        // Botão Próximo
         const btnDepois = document.createElement("button");
         btnDepois.textContent = "Próximo";
         btnDepois.classList.add("btn-after");
-
-        // Desativa se estiver na última página
         btnDepois.disabled = paginaAtual === totalPaginas;
-
-        // Define ação ao clicar: avança uma página
         btnDepois.onclick = () => {
             if (paginaAtual < totalPaginas) {
                 paginaAtual++;
                 mostrarPagina(paginaAtual);
             }
         };
-
-        // Adiciona o botão "Próximo" na tela
         pagesContainer.appendChild(btnDepois);
     }
 
-    // -----------------------------
     // INICIALIZAÇÃO
-    // -----------------------------
-    // Mostra a primeira página ao carregar o site
     mostrarPagina(paginaAtual);
-    btnAntes.disabled = paginaAtual === 1;
-    btnDepois.disabled = paginaAtual === totalPaginas;
-});
-
-// Filtros dinâmicos sem botão
-document.addEventListener("DOMContentLoaded", function() {
-    const form = document.querySelector("form");
-    const checkboxes = form.querySelectorAll("input[type='checkbox']");
-    
-    // Quando marcar/desmarcar qualquer checkbox, submit o form
-    checkboxes.forEach(checkbox => {
-        checkbox.addEventListener("change", function() {
-            form.submit();
-        });
-    });
 });

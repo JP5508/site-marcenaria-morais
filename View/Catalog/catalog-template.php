@@ -27,7 +27,6 @@
                     <div class="search">
                         <input type="search" id="name" name="name" placeholder="pesquisar"
                             value="<?php echo isset($_GET['name']) ? htmlspecialchars($_GET['name']) : ''; ?>">
-                        <!-- <img src="./img/icon_white_search.png"> -->
                         <button type="submit"><img src="./img/icon_white_search.png"></button>
                     </div>
                 </div>
@@ -101,12 +100,27 @@
                                 src="./img/icon_dark_close.png" alt="Fechar popup"></button>
                         <div class="popup-columns">
                             <div class="popup-left">
-                                <?php for ($i=1; $i<=4; $i++): ?>
-                                <?php if (!empty($item["Cat_img$i"])): ?>
-                                <img src="./img/<?php echo htmlspecialchars($item["Cat_img$i"]); ?>"
-                                    alt="Imagem adicional de <?php echo htmlspecialchars($item['Cat_nome']); ?>">
-                                <?php endif; ?>
-                                <?php endfor; ?>
+                                <!-- Container do carrossel -->
+                                <div class="carousel-container" id="carousel-<?php echo $item['Cat_id']; ?>">
+                                    <div class="carousel-track">
+                                        <?php for ($i=1; $i<=4; $i++): ?>
+                                        <?php if (!empty($item["Cat_img$i"])): ?>
+                                        <div class="carousel-slide">
+                                            <img src="./img/<?php echo htmlspecialchars($item["Cat_img$i"]); ?>"
+                                                alt="Imagem adicional de <?php echo htmlspecialchars($item['Cat_nome']); ?>">
+                                        </div>
+                                        <?php endif; ?>
+                                        <?php endfor; ?>
+                                    </div>
+                                    
+                                    <!-- Botões de navegação -->
+                                    <button class="carousel-btn carousel-prev" onclick="moveCarousel('<?php echo $item['Cat_id']; ?>', -1)">
+                                        <img src="./img/icon_white_left_arrow.png" alt="Anterior">
+                                    </button>
+                                    <button class="carousel-btn carousel-next" onclick="moveCarousel('<?php echo $item['Cat_id']; ?>', 1)">
+                                        <img src="./img/icon_white_right_arrow.png" alt="Próximo">
+                                    </button>
+                                </div>
                             </div>
                             <div class="popup-right">
                                 <h5><?php echo htmlspecialchars($item['Cat_nome']); ?></h5>
