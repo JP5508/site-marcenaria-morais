@@ -1,6 +1,6 @@
-# TCC - Marcenaria Morais
+# TCC - Site da Marcenaria Morais
 
-Este repositório contém o **TCC (Trabalho de Conclusão de Curso)** desenvolvido por alunos do 3º ano do curso técnico em **Desenvolvimento de Sistemas** da **ETEC Jardim Ângela**. O projeto foi criado para a **Marcenaria Morais**, com o objetivo de modernizar e facilitar a divulgação dos serviços e o gerenciamento interno da empresa.
+Este repositório contém o site do **TCC (Trabalho de Conclusão de Curso)** desenvolvido por alunos do 3º ano do curso técnico em **Desenvolvimento de Sistemas** da **ETEC Jardim Ângela**. O projeto foi criado para a **Marcenaria Morais**, com o objetivo de modernizar e facilitar a divulgação dos serviços e o gerenciamento interno da empresa.
 
 [INSTAGRAM](https://www.instagram.com/marcenaria.morais_)
 
@@ -29,12 +29,10 @@ O sistema é composto por duas partes integradas:
 Um site responsivo, criado com **HTML5**, **CSS3** e **JAVA SCRIPT**, com as seguintes funcionalidades:
 - Apresentação da marcenaria
 - Página de contato
-- Catálogo de produtos (integrado ao sistema de gestão)
 
-### 💻 Software de Gestão
-Aplicativo desktop desenvolvido em **C#**, com as seguintes funcionalidades:
-- Cadastro de clientes
-- Cadastro e gerenciamento de produtos
-- Registro de pedidos
-- Atualização do catálogo exibido no site
-- Integração com banco de dados
+### 🌐 Catálogo de Produtos
+Um site responsivo, criado com **HTML5**, **CSS3**, **PHP8.4** e **JAVA SCRIPT**, com as seguintes funcionalidades:
+- Catálogo de produtos (integrado ao sistema de gestão)
+- Filtros dinamicos
+- Popup com descrição dos produtos
+- Carrossel com imagens dos produtos
