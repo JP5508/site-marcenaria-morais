@@ -11,24 +11,24 @@ function hidePopup(id) {
 }
 
 // Filtros dinâmicos sem botão
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector("form");
     const checkboxes = form.querySelectorAll("input[type='checkbox']");
-    
+
     checkboxes.forEach(checkbox => {
-        checkbox.addEventListener("change", function() {
+        checkbox.addEventListener("change", function () {
             form.submit();
         });
     });
 });
 
 // Navegação por teclado para o carrossel
-document.addEventListener('keydown', function(e) {
+document.addEventListener('keydown', function (e) {
     const openPopup = document.querySelector('.popup-content[style*="display: flex"]');
     if (!openPopup) return;
-    
+
     const popupId = openPopup.id.replace('popup-', '');
-    
+
     if (e.key === 'ArrowLeft') {
         moveCarousel(popupId, -1);
     } else if (e.key === 'ArrowRight') {
@@ -42,14 +42,14 @@ document.addEventListener('keydown', function(e) {
 function initCarousel(popupId) {
     const container = document.querySelector(`#popup-${popupId} .carousel-container`);
     if (!container) return;
-    
+
     const track = container.querySelector('.carousel-track');
     const prevBtn = container.querySelector('.carousel-prev');
     const nextBtn = container.querySelector('.carousel-next');
-    
+
     // Garante que estamos no primeiro slide
     track.scrollLeft = 0;
-    
+
     // Atualiza estado inicial dos botões
     updateCarouselButtons(popupId);
 }
@@ -57,18 +57,18 @@ function initCarousel(popupId) {
 function moveCarousel(popupId, direction) {
     const container = document.querySelector(`#popup-${popupId} .carousel-container`);
     if (!container) return;
-    
+
     const track = container.querySelector('.carousel-track');
     const slides = container.querySelectorAll('.carousel-slide');
-    
+
     if (!slides.length) return;
-    
+
     const slideWidth = track.offsetWidth;
     const currentPosition = track.scrollLeft;
     const maxScroll = track.scrollWidth - track.offsetWidth;
-    
+
     let targetPosition;
-    
+
     if (direction === 1) {
         // Próximo
         targetPosition = Math.min(currentPosition + slideWidth, maxScroll);
@@ -76,12 +76,12 @@ function moveCarousel(popupId, direction) {
         // Anterior
         targetPosition = Math.max(currentPosition - slideWidth, 0);
     }
-    
+
     track.scrollTo({
         left: targetPosition,
         behavior: 'smooth'
     });
-    
+
     // Atualiza botões após a animação
     setTimeout(() => updateCarouselButtons(popupId), 300);
 }
@@ -89,17 +89,17 @@ function moveCarousel(popupId, direction) {
 function updateCarouselButtons(popupId) {
     const container = document.querySelector(`#popup-${popupId} .carousel-container`);
     if (!container) return;
-    
+
     const track = container.querySelector('.carousel-track');
     const prevBtn = container.querySelector('.carousel-prev');
     const nextBtn = container.querySelector('.carousel-next');
-    
+
     const currentPosition = track.scrollLeft;
     const maxScroll = track.scrollWidth - track.offsetWidth;
-    
+
     // Adiciona uma tolerância para evitar problemas de arredondamento
     const tolerance = 1;
-    
+
     prevBtn.disabled = currentPosition <= tolerance;
     nextBtn.disabled = currentPosition >= maxScroll - tolerance;
 }
@@ -123,6 +123,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 card.style.display = "none";
             }
         });
+
+        // volta aos filtros
+        const filtros = document.getElementById('filters');
+        if (filtros) {
+            filtros.scrollIntoView({ behavior: "smooth" });
+        }
 
         atualizarBotoes();
     }

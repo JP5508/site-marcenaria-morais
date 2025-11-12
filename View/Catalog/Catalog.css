@@ -569,50 +569,85 @@ a {
 
 @media (max-width: 800px) {
     .catalog {
-        grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .card {
-        height: auto;
-        width: 100%;
+    height: auto;
+    width: 100%;
     }
-    
+
     form {
-        width: 100%;
+    width: 100%;
+    flex-direction: column;
     }
-    
-    .category input[type="checkbox"] {
-        min-width: 100px;
-    }
-    
-    .card-txt p, .card-txt a {
-        display: block;
-    }
-    
-    .popup-columns {
-        flex-direction: column;
-    }
-    
-    .popup-left,
-    .popup-right {
-        width: 100%;
-    }
-    
-    .carousel-container {
-        height: 300px;
+
+    .filters-div {
+    width: 100%;
+    margin-bottom: 15px;
     }
     
     .search {
-        width: 100%;
+    width: 100%;
     }
-}
 
-@media (min-width: 801px) and (max-width: 1200px) {
-    .catalog {
-        grid-template-columns: repeat(3, 1fr);
+    .search input {
+    font-size: 1rem;
     }
-    
-    .popup {
-        width: 90%;
+
+    .size {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 10px;
+    }
+
+    .size label {
+    display: inline-block;
+    margin-right: 5px;
+    }
+
+    .category {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 8px;
+    }
+
+    .category label {
+    display: inline-block;
+    margin-bottom: 8px;
+    }
+
+    .category input[type="checkbox"] {
+    min-width: 80px;
+    height: 35px;
+    font-size: 0.85rem;
+    }
+
+    .category label span {
+    font-size: clamp(0.6rem, 1.5vw, calc(1vw + 0.2rem));
+    }
+
+    #filters p {
+    margin-top: 2%;
+    margin-bottom: 1%;
+    }
+
+    .card-txt p, .card-txt a {
+    display: block;
+    }
+
+    .popup-columns {
+    flex-direction: column;
+    }
+
+    .popup-left,
+    .popup-right {
+    width: 100%;
+    }
+
+    .carousel-container {
+    height: auto;
+    max-width: 80vw;
+    width: 100%;
     }
 }
