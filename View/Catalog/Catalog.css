@@ -163,11 +163,18 @@ span {
     gap: 1%;
 }
 
+.size div {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
 .size input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;
     width: 30px;
     height: 30px;
+    margin-right: 5px;
     background-color: var(--background);
     border: solid 1px var(--white);
     border-radius: 10px;
@@ -176,7 +183,7 @@ span {
 
 .size label {
     color: var(--white);
-    font-size: clamp(0.5rem, 2vw, calc(1vw + 0.3rem));
+    font-size: clamp(1rem, 2vw, calc(1vw + 0.5rem));
     cursor: pointer;
 }
 
@@ -586,7 +593,7 @@ a {
     width: 100%;
     margin-bottom: 15px;
     }
-    
+
     .search {
     width: 100%;
     }
