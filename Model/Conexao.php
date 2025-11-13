@@ -1,6 +1,13 @@
 <?php
 
-$conn = new mysqli('localhost','root','','marcenaria_morais');
+// Configurações do banco de dados remoto
+$host     = "br910.hostgator.com.br";
+$usuario  = "quaiat07_marcenaria_morais";
+$senha    = "21314151**mm";
+$banco    = "quaiat07_marcenaria_morais";
+
+// Criar conexão usando mysqli
+$conn = new mysqli($host, $usuario, $senha, $banco);
 $conn->set_charset("utf8mb4");
 
 ?>

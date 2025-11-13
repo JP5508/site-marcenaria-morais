@@ -1,0 +1,13 @@
+ftp.quaiati.com.br
+marcenaria_morais@quaiati.com.br
+21314151**mm
+
+dados do banco
+
+server/host: br910.hostgator.com.br
+
+banco: quaiat07_marcenaria_morais
+
+user: quaiat07_marcenaria morais
+
+senha: 21314151**mm
