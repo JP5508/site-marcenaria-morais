@@ -4,7 +4,7 @@
 require 'Conexao.php';
 
 // Monta a consulta com possibilidade de filtro por nome via GET
-$sql = "SELECT Cat_id, Cat_nome, Cat_desc, Cat_cate, Cat_tamanho, Cat_img1, Cat_img2, Cat_img3, Cat_img4 FROM catalogo WHERE 1=1";
+$sql = "SELECT Cat_id, Cat_nome, Cat_desc, Cat_cate, Cat_tamanho, Cat_img1, Cat_img2, Cat_img3, Cat_img4 FROM Catalogo WHERE 1=1";
 
 $params = [];
 $types = "";
@@ -52,7 +52,7 @@ while ($row = $result->fetch_assoc()) {
 }
 
 // Obter categorias dinâmicas para filtro no template
-$sqlCat = "SELECT DISTINCT Cat_cate FROM catalogo";
+$sqlCat = "SELECT DISTINCT Cat_cate FROM Catalogo";
 $resultCat = $conn->query($sqlCat);
 $categorias = [];
 while ($row = $resultCat->fetch_assoc()) {
@@ -60,7 +60,7 @@ while ($row = $resultCat->fetch_assoc()) {
 }
 
 // Obter tamanhos dinâmicos para filtro no template
-$sqlTam = "SELECT DISTINCT Cat_tamanho FROM catalogo";
+$sqlTam = "SELECT DISTINCT Cat_tamanho FROM Catalogo";
 $resultTam = $conn->query($sqlTam);
 $tamanhos = [];
 while ($row = $resultTam->fetch_assoc()) {

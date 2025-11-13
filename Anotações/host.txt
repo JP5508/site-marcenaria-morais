@@ -5,6 +5,7 @@ marcenaria_morais@quaiati.com.br
 dados do banco
 
 server/host: br910.hostgator.com.br
+IP: 162.241.2.71
 
 banco: quaiat07_marcenaria_morais
 
