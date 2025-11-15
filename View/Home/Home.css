@@ -276,6 +276,17 @@ section {
     height: 50vh;
 }
 
+.adress a {
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+
+.adress img {
+    width: clamp(0.8rem, 2vw, calc(1vw + 0.5rem));
+    height: clamp(0.8rem, 2vw, calc(1vw + 0.5rem));
+}
+
 .adress-bg {
     height: 100%;
     /* background-color: #3D3D3D; */
@@ -292,6 +303,14 @@ section {
     width: 50%;
     padding: 5%;
     /* background-color: var(--background); */
+}
+
+.left-adress div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .right-adress {
@@ -404,12 +423,14 @@ h5 {
 
 p {
     /* font-size: clamp(0.5rem, 2vw, 1.5rem); */
-    font-size: clamp(0.5rem, 2vw, calc(1vw + 0.3rem));
+    /* font-size: clamp(0.5rem, 2vw, calc(1vw + 0.3rem)); */
+    font-size: clamp(0.8rem, 2vw, calc(1vw + 0.5rem));
 }
 
 a {
     /* font-size: clamp(0.5rem, 2vw, 1.5rem); */
-    font-size: clamp(0.5rem, 2vw, calc(1vw + 0.2rem));
+    /* font-size: clamp(0.5rem, 2vw, calc(1vw + 0.2rem)); */
+    font-size: clamp(0.5rem, 2vw, calc(1vw + 0.3rem));
 }
 
 .title-bg-primary {
