@@ -3,7 +3,7 @@
 
 <head>
     <title>Marcenaria Morais</title>
-    <link rel="icon" type="image/x-icon" href="./img/nova-logo_quadrado.png">
+    <link rel="icon" type="image/x-icon" href="./img/white_logo.png">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link href="./Catalog.css" rel="stylesheet" />
@@ -14,7 +14,7 @@
 <body>
     <!-- NAVBAR -->
     <nav>
-        <a href="../Home/home.html"><img src="./img/logo_white.png" alt="Logo Marcenaria Morais"></a>
+        <a href="../Home/home.html"><img src="./img/white_logo.png" alt="Logo Marcenaria Morais"></a>
     </nav>
 
     <main>
@@ -84,7 +84,7 @@
                 <?php if (count($catalogItems) > 0): ?>
                 <?php foreach ($catalogItems as $item): ?>
                 <div class="card" onclick="showPopup('<?php echo $item['Cat_id']; ?>')">
-                    <img class="card-img" src="./img/<?php echo htmlspecialchars($item['Cat_img1']); ?>"
+                    <img class="card-img" src="./img/catalog/<?php echo htmlspecialchars($item['Cat_img1']); ?>"
                         alt="Imagem de <?php echo htmlspecialchars($item['Cat_nome']); ?>">
                     <div class="card-txt">
                         <h5><?php echo htmlspecialchars($item['Cat_nome']); ?></h5>
@@ -106,7 +106,7 @@
                                         <?php for ($i=1; $i<=4; $i++): ?>
                                         <?php if (!empty($item["Cat_img$i"])): ?>
                                         <div class="carousel-slide">
-                                            <img src="./img/<?php echo htmlspecialchars($item["Cat_img$i"]); ?>"
+                                            <img src="./img/catalog/<?php echo htmlspecialchars($item["Cat_img$i"]); ?>"
                                                 alt="Imagem adicional de <?php echo htmlspecialchars($item['Cat_nome']); ?>">
                                         </div>
                                         <?php endif; ?>

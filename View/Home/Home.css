@@ -53,10 +53,11 @@ nav a {
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: var(--white);
+    color: var(--gray);
 }
 
 nav a:hover {
+    color: var(--white);
     background-color: var(--primary);
 }
 
@@ -71,7 +72,7 @@ main {
     color: var(--white);
     background-color: var(--background);
     background-image: url(./img/background_pattern.png);
-    background-size: 10vh;
+    background-size: 40vh;
 }
 
 footer {
@@ -109,7 +110,8 @@ section {
 /*----------------*/
 
 #home {
-    background-image: url(./img/background_home.jpg);
+    /* background-image: url(./img/background_home.jpg); */
+    background: linear-gradient(rgba(0, 0, 0, 0.6), var(--background)), url(./img/background_home.jpg);
     background-size: cover;
     text-align: center;
     /* height: 90vh; */
@@ -200,7 +202,8 @@ section {
 
 .about {
     display: flex;
-    background: linear-gradient(rgba(0, 0, 0, 0.8), var(--background)), url(./img/background_about.png);
+    background: linear-gradient(rgba(0, 0, 0, 0.8), var(--background)), url(./img/background_about.jpg);
+    background-size: 100%;
     padding-left: 10%;
     padding-right: 10%;
     /* flex-wrap: wrap; */
@@ -257,7 +260,7 @@ section {
 }
 
 .btn-catalog {
-    color: var(--white);
+    color: var(--gray);
     text-decoration: none;
     /* margin-top: 20px; */
     padding-top: 4%;
@@ -266,6 +269,10 @@ section {
     border-radius: 10px;
     background-color: var(--primary);
     border: none;
+}
+
+.btn-catalog:hover {
+    color: var(--white);
 }
 
 .adress {

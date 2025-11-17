@@ -3,14 +3,15 @@
 /*-------------------*/
 
 :root {
-    --primary: #6B1A30;
-    --alt-primary: #A02748;
-    --secondary: #BEA38C;
-    --alt-secondary: #EECBAD;
+    --primary: #00011b;
+    --alt-primary: #00012A;
+    --secondary: #747372;
+    --alt-secondary: #ACABA9;
     --accent: #7D8288;
-    --background: #1E1E1E;
+    --background: #000000;
     --cards: #272727;
     --white: #FFFFFF;
+    --gray: #ACABA9;
     --black: #000000;
     --error: #FF9B19;
     --test: #9d00ff;

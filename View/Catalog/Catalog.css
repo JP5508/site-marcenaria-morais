@@ -231,7 +231,7 @@ span {
     width: auto;
     min-width: 150px;
     height: 40px;
-    background-color: var(--accent);
+    background-color: var(--gray);
     border-radius: 5px;
     cursor: pointer;
     padding: 0 10px;
@@ -256,11 +256,11 @@ span {
 }
 
 .category input[type="checkbox"]:checked {
-    background-color: var(--alt-secondary);
+    background-color: var(--alt-primary);
 }
 
 .category input[type="checkbox"]:checked+span {
-    color: var(--black);
+    color: var(--gray);
 }
 
 .catalog {
