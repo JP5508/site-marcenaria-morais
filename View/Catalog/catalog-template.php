@@ -14,7 +14,8 @@
 <body>
     <!-- NAVBAR -->
     <nav>
-        <a href="../Home/home.html"><img src="./img/white_logo.png" alt="Logo Marcenaria Morais"></a>
+        <a class="nav-logo" href="../Home/home.html"><img src="./img/white_logo.png" alt="Logo Marcenaria Morais"></a>
+        <a class="nav-link" href="../Home/home.html">HOME</a>
     </nav>
 
     <main>
@@ -33,7 +34,7 @@
 
                 <!-- SIZE -->
                 <div class="filters-div">
-                    <p>Tamanhos:</p>
+                    <p>Tamanho:</p>
 
                     <div class="size">
                         <div>
@@ -58,7 +59,7 @@
 
                 <!-- CATEGORY -->
                 <div class="filters-div">
-                    <p>Categorias:</p>
+                    <p>Categoria:</p>
                     <div class="category">
                         <?php foreach($categorias as $index => $cat): ?>
                         <label>
