@@ -296,6 +296,10 @@ section {
     /* flex-grow: 1; */
 }
 
+.right-catalog a {
+    cursor: pointer;
+}
+
 .btn-catalog {
     color: var(--gray);
     text-decoration: none;
@@ -306,6 +310,7 @@ section {
     border-radius: 10px;
     background-color: var(--primary);
     border: none;
+    cursor: pointer;
 }
 
 .btn-catalog:hover {
@@ -336,6 +341,16 @@ section {
     width: 50%;
     padding: 5%;
     /* background-color: var(--background); */
+}
+
+.left-adress a {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--white);
+}
+
+.left-adress a:hover {
+    color: var(--gray);
 }
 
 .right-adress {
@@ -416,6 +431,8 @@ section {
     white-space: nowrap;
     text-wrap: nowrap;
     min-width: fit-content;
+    text-align: center;
+    cursor: pointer;
 }
 
 /*-------------------*/
@@ -479,7 +496,7 @@ a {
     /* empurra levemente pra cima */
     height: 0.6em;
     /* cobre metade da altura da fonte */
-    background: var(--primary);
+    background: var(--alt-primary);
     /* border-radius: 4px; */
     z-index: -1;
 }

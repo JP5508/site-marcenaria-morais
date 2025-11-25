@@ -34,7 +34,7 @@
 
                 <!-- SIZE -->
                 <div class="filters-div">
-                    <p>Tamanho:</p>
+                    <p>Tamanho do produto:</p>
 
                     <div class="size">
                         <div>
