@@ -150,7 +150,7 @@
     <footer>
         <p>Copyright ©2025 <a href="../Terms/terms.html">Termos de Serviço</a></p>
     </footer>
-    <script src="../../Controller/Script.js"></script>
+    <script src="../../Controller/Catalog.js"></script>
 </body>
 
 </html>

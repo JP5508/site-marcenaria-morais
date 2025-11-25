@@ -473,7 +473,7 @@ p {
 a {
     /* font-size: clamp(0.5rem, 2vw, 1.5rem); */
     /* font-size: clamp(0.5rem, 2vw, calc(1vw + 0.2rem)); */
-    font-size: clamp(0.5rem, 2vw, calc(1vw + 0.3rem));
+    font-size: clamp(0.8rem, 2vw, calc(1vw + 0.3rem));
 }
 
 .title-bg-primary {
@@ -603,13 +603,47 @@ a {
     .card-midias {
         width: 100%;
     }
+
+    /* ARROWS */
+
+    .up-arrow, .down-arrow {
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 15;
+        width: 1.5rem;
+        height: auto;
+        pointer-events: none;
+        opacity: 0.8;
+        transition: opacity 0.2s;
+        left: auto;
+        right: 5vw;
+        background-color: var(--primary);
+        padding: 1px;
+        border-radius: 100%;
+    }
+
+    .up-arrow{
+        top: 10vh;
+        display: none;
+    }
+    
+    .down-arrow{
+        bottom: 5vh;
+        display: block;
+    }
 }
 
-@media(min-width: 800px) {
+@media(min-width: 801px) {
     .adress iframe {
         width: 100%;
         height: 100%;
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
+    }
+
+    /* Garantia das setas não aparecerem no desktop */
+    .up-arrow, .down-arrow {
+    display: none !important;
     }
 }

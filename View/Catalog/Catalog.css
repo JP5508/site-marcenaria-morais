@@ -582,13 +582,13 @@ h5 {
 p {
     /* font-size: clamp(0.5rem, 2vw, 1.5rem); */
     /* font-size: clamp(0.5rem, 2vw, calc(1vw + 0.3rem)); */
-    font-size: clamp(0.8rem, 2vw, calc(1vw + 0.5rem));
+    font-size: clamp(1rem, 2vw, calc(1vw + 0.5rem));
 }
 
 a {
     /* font-size: clamp(0.5rem, 2vw, 1.5rem); */
     /* font-size: clamp(0.5rem, 2vw, calc(1vw + 0.2rem)); */
-    font-size: clamp(0.5rem, 2vw, calc(1vw + 0.3rem));
+    font-size: clamp(0.8rem, 2vw, calc(1vw + 0.3rem));
 }
 
 /*------------------*/
