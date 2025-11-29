@@ -14,8 +14,8 @@
 <body>
     <!-- NAVBAR -->
     <nav>
-        <a class="nav-logo" href="../Home/home.html"><img src="./img/white_logo.png" alt="Logo Marcenaria Morais"></a>
-        <a class="nav-link" href="../Home/home.html">HOME</a>
+        <a class="nav-logo" href="../../View/Home/home.html"><img src="./img/white_logo.png" alt="Logo Marcenaria Morais"></a>
+        <a class="nav-link" href="../../View/Home/home.html">HOME</a>
     </nav>
 
     <main>

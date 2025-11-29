@@ -80,7 +80,7 @@ main {
 
 footer {
     grid-area: footer;
-    background-color: var(--primary);
+    background-color: var(--alt-primary);
     color: var(--alt-secondary);
     /* bottom: 0%;
     left: 0; */
@@ -222,11 +222,11 @@ section {
     background-color: var(--cards);
     border-radius: 10px;
     border-bottom: 1px solid var(--white);
-    padding: 10px;
+    padding: clamp(1rem, 2vw, 2rem);
 }
 
 .card-who img {
-    background-color: var(--primary);
+    background-color: var(--alt-primary);
     border-radius: 10%;
     border: 1px solid var(--black);
     /* margin: 10px; */
@@ -241,8 +241,9 @@ section {
     display: flex;
     background: linear-gradient(rgba(0, 0, 0, 0.5), var(--background)), url(./img/background_about.jpg);
     background-size: cover;
-    padding-left: 10%;
-    padding-right: 10%;
+    /* padding-left: 10%;
+    padding-right: 10%; */
+    padding: 5%;
     /* flex-wrap: wrap; */
     border-radius: 10px;
     border-bottom: 1px solid var(--white);
@@ -308,7 +309,7 @@ section {
     padding-bottom: 4%;
     width: 40%;
     border-radius: 10px;
-    background-color: var(--primary);
+    background-color: var(--alt-primary);
     border: none;
     cursor: pointer;
 }
@@ -347,10 +348,14 @@ section {
     text-decoration: none;
     font-weight: bold;
     color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.left-adress a:hover {
-    color: var(--gray);
+.left-adress img {
+    height: clamp(1rem, 2vw, 2rem);
 }
 
 .right-adress {
