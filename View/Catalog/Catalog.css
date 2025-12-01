@@ -329,19 +329,19 @@ span {
 
 .card h5 {
     height: 20%;
-    font-size: clamp(0.5rem, 2vw, calc(1vw + 0.3rem));
+    font-size: clamp(0.8rem, 2vw, calc(1vw + 0.3rem));
     margin-top: 1%;
     margin-bottom: 5%;
 }
 
 .card p {
-    font-size: clamp(0.1rem, 2vw, calc(1vw + 0.1rem));
+    font-size: clamp(0.5rem, 2vw, calc(1vw + 0.1rem));
     margin-top: 1%;
     margin-bottom: 1%;
 }
 
 .card a {
-    font-size: clamp(0.1rem, 2vw, calc(1vw + 0.1rem));
+    font-size: clamp(0.3rem, 2vw, calc(1vw + 0.1rem));
     margin-top: 1%;
     margin-bottom: 1%;
     color: var(--alt-secondary);
@@ -419,11 +419,13 @@ span {
     max-width: 900px;
     max-height: 80vh;
     overflow-y: auto;
+    overflow-x: hidden;
     padding: 2%;
     display: flex;
     flex-direction: column;
     border-radius: 10px;
     gap: 15px;
+    scrollbar-width: none;
 }
 
 .popup > button:first-child {
