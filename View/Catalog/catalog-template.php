@@ -148,7 +148,7 @@
     </main>
 
     <footer>
-        <p>Copyright ©2025 <a href="../Terms/terms.html">Termos de Serviço</a></p>
+        <p>©2025 <a href="../Devs/devs.html">Desenvolvedores</a></p>
     </footer>
     <script src="../../Controller/Catalog.js"></script>
 </body>

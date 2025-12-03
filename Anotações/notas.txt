@@ -35,8 +35,10 @@
 [ok] Midias
 [ok] Quem somos
 [ok] ordenar: sobre - catalogo
-[..] link do zap
-[..] orçamento
+[ok] link do zap
+[no] orçamento
+[ok] elaborado por
+[ok] link para o manual
 ----------COMANDOS----------
 
 git rm -r --cached IGNORE
