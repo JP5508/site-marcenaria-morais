@@ -1,0 +1,19 @@
+filezilla:
+
+host: ftp.quaiati.com.br
+user: marcenaria_morais@quaiati.com.br
+senha: 21314151**mm
+
+----------
+
+banco de dados:
+
+server/host: br910.hostgator.com.br
+/ou/
+IP: 162.241.2.71
+
+banco: quaiat07_marcenaria_morais
+
+user: quaiat07_marcenaria_morais
+
+senha: 21314151**mm
