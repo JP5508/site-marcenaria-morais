@@ -14,7 +14,8 @@
 <body>
     <!-- NAVBAR -->
     <nav>
-        <a class="nav-logo" href="../../View/Home/home.html"><img src="./img/white_logo.png" alt="Logo Marcenaria Morais"></a>
+        <a class="nav-logo" href="../../View/Home/home.html"><img src="./img/white_logo.png"
+                alt="Logo Marcenaria Morais"></a>
         <a class="nav-link" href="../../View/Home/home.html">HOME</a>
     </nav>
 
@@ -37,25 +38,17 @@
                     <p>Tamanho do produto:</p>
 
                     <div class="size">
+                        <?php foreach($tamanhos as $index => $tamanho): ?>
                         <div>
-                            <input type="checkbox" name="tamanho[]" id="grande" value="Grande"
-                                <?php if(isset($_GET['tamanho']) && in_array('Grande', $_GET['tamanho'])) echo "checked"; ?>>
-                            <label for="grande">Grande</label>
+                            <input type="checkbox" name="tamanho[]" id="tam_<?php echo $index; ?>"
+                                value="<?php echo htmlspecialchars($tamanho); ?>"
+                                <?php if(isset($_GET['tamanho']) && in_array($tamanho, $_GET['tamanho'])) echo "checked"; ?>>
+                            <label for="tam_<?php echo $index; ?>"><?php echo htmlspecialchars($tamanho); ?></label>
                         </div>
-
-                        <div>
-                            <input type="checkbox" name="tamanho[]" id="medio" value="Médio"
-                                <?php if(isset($_GET['tamanho']) && in_array('Médio', $_GET['tamanho'])) echo "checked"; ?>>
-                            <label for="medio">Médio</label>
-                        </div>
-
-                        <div>
-                            <input type="checkbox" name="tamanho[]" id="pequeno" value="Pequeno"
-                                <?php if(isset($_GET['tamanho']) && in_array('Pequeno', $_GET['tamanho'])) echo "checked"; ?>>
-                            <label for="pequeno">Pequeno</label>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
+
 
                 <!-- CATEGORY -->
                 <div class="filters-div">
@@ -113,12 +106,14 @@
                                         <?php endif; ?>
                                         <?php endfor; ?>
                                     </div>
-                                    
+
                                     <!-- Botões de navegação -->
-                                    <button class="carousel-btn carousel-prev" onclick="moveCarousel('<?php echo $item['Cat_id']; ?>', -1)">
+                                    <button class="carousel-btn carousel-prev"
+                                        onclick="moveCarousel('<?php echo $item['Cat_id']; ?>', -1)">
                                         <img src="./img/icon_white_left_arrow.png" alt="Anterior">
                                     </button>
-                                    <button class="carousel-btn carousel-next" onclick="moveCarousel('<?php echo $item['Cat_id']; ?>', 1)">
+                                    <button class="carousel-btn carousel-next"
+                                        onclick="moveCarousel('<?php echo $item['Cat_id']; ?>', 1)">
                                         <img src="./img/icon_white_right_arrow.png" alt="Próximo">
                                     </button>
                                 </div>

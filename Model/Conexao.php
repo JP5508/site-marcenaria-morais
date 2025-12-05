@@ -9,6 +9,7 @@ $banco    = "quaiat07_marcenaria_morais";
 
 // Criar conexão usando mysqli
 $conn = new mysqli($host, $usuario, $senha, $banco);
+// $conn = new mysqli('localhost','root','','marcenaria_morais');
 $conn->set_charset("utf8mb4");
 
 ?>

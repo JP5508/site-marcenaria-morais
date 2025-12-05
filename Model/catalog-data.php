@@ -52,15 +52,42 @@ while ($row = $result->fetch_assoc()) {
 }
 
 // Obter categorias dinâmicas para filtro no template
-$sqlCat = "SELECT DISTINCT Cat_cate FROM Catalogo";
+// $sqlCat = "SELECT DISTINCT Cat_cate FROM Catalogo";
+// $resultCat = $conn->query($sqlCat);
+// $categorias = [];
+// while ($row = $resultCat->fetch_assoc()) {
+//     $categorias[] = $row['Cat_cate'];
+// }
+$sqlCat = "
+    SELECT DISTINCT Cat_cate
+    FROM Catalogo
+    ORDER BY 
+        CASE 
+            WHEN Cat_cate REGEXP '^[0-9]+' THEN 0  -- primeiro nomes que começam com número
+            ELSE 1                               -- depois apenas letras
+        END,
+        Cat_cate ASC                             -- ordem alfabética
+";
 $resultCat = $conn->query($sqlCat);
 $categorias = [];
 while ($row = $resultCat->fetch_assoc()) {
     $categorias[] = $row['Cat_cate'];
 }
 
+
 // Obter tamanhos dinâmicos para filtro no template
-$sqlTam = "SELECT DISTINCT Cat_tamanho FROM Catalogo";
+// $sqlTam = "SELECT DISTINCT Cat_tamanho FROM Catalogo";
+$sqlTam = "
+    SELECT DISTINCT Cat_tamanho 
+    FROM Catalogo
+    ORDER BY 
+        CASE 
+            WHEN Cat_tamanho REGEXP '^[0-9]+' THEN 0  -- primeiro tamanhos numéricos (tipo 1, 2, 10)
+            ELSE 1                                   -- depois textos (Pequeno, Médio, Grande)
+        END,
+        CAST(Cat_tamanho AS UNSIGNED),              -- ordena números 1,2,10 corretamente
+        Cat_tamanho ASC                             -- e por fim ordena nomes em ordem alfabética
+";
 $resultTam = $conn->query($sqlTam);
 $tamanhos = [];
 while ($row = $resultTam->fetch_assoc()) {
